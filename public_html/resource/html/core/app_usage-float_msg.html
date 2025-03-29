@@ -1,0 +1,10 @@
+<b>To control : </b>use <code lang="js" class="language-js">app.ui.notify(a,b);</code><br>
+&emsp;which contains first parameter <code lang="js" class="language-js">a</code> as the command for <code lang="js" class="language-js">0</code> closes the notification and <code lang="js" class="language-js">1</code> instantiates a new one & the second parameter <code lang="js" class="language-js">b</code> depends on the first parameter as so<br>
+<code lang="js" class="language-js">
+    /* if the first parameter is 0 then the second parameter must be a htmlDOMobject to the message parent */<br>
+    document.querySelector("div.msg")<br>/* if the first parameter is 1 then the second parameter must be an array "[]" which contains two child */<br>
+    /* first one is a number from 0 - 3 which indicates the message priority as { 0: "done (green)",&emsp;1: "info (blue)",&emsp;2: "warn (yellow)",&emsp;3: "error (red)"} */<br>
+    /* and the second one is the message contained in the <i>new</i> notification (must be a STRING) */</code><br>
+Please note that all notification will automatically close 45 seconds after their instantiation<br><br>
+<b>Structure example : </b>
+<code lang="js" class="language-js">app.ui.notify(1, [1, "You are testing floating message dialog"]);</code>&emsp;<button class="gray" onClick="app.ui.notify(1,[1,'You are testing floating message dialog'])">Try</button>

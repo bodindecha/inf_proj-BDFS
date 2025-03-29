@@ -1,0 +1,22 @@
+{
+	"languages": ["EN", "TH"],
+	"translations": [
+		{
+			"$": "main .error .info .action button:nth-child(1)",
+			"EN": "Home",
+			"TH": "หน้าแรก"
+		}, {
+			"$": "main .error .info .action button:nth-child(2)",
+			"EN": "Back",
+			"TH": "ย้อนกลับ"
+		}, {
+			"$": "main .error .info .action button:nth-child(3)",
+			"EN": "Reload",
+			"TH": "โหลดใหม่"
+		}, {
+			"$": "main .control .group.spread .group button",
+			"EN": "Set",
+			"TH": "เปลี่ยน"
+		}
+	]
+}

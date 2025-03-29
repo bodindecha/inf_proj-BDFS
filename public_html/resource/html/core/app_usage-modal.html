@@ -1,0 +1,16 @@
+<b>To open : </b>use <code lang="js" class="language-js">app.ui.modal.open(a,b);</code><br>
+&emsp;which contains the first parameter <code lang="js" class="language-js">a</code> as the message at the top of the box STRING typed <code lang="js" class="language-js">""</code> & the second parameter <code lang="js" class="language-js">b</code> as an JS object <code lang="js" class="language-js">{}</code> which contains attributes as so<br>
+<code lang="js" class="language-js">
+    /* for a normal action button */<br>
+    name: "action button name"<br>
+    href: "URL redirection or a javascript:fx call"<br><br>
+    /* for a selectable options */<br>
+    response: "confirm" /* a fixed attribute */<br>
+    option: ["array","of","option","names"] /* name for each action buttons */<br>
+    values: ["value","for","each","options"] /* which has to match the order of the option array (values can be both INT and STRING) */<br><br>
+    /* for text inputs */<br>
+    response: "string" /* a fixed attribute */<br>
+    type: "input element type attribute value" /* eg: "text", "password", "number", "tel", "email", "url" */<br><br>
+    /* for any initiation with response attribute */<br>
+    cfx: function(res){ "callback function" } /* a function called after the options are chosed (a function must contain only 1 parameter for the value of the selected option) */</code><br><br>
+<b>To close : </b>normally, after an interaction, a programmatically close is not required for the modal will automatically close itself, but if it was so, then use <code lang="js" class="language-js">app.ui.modal.close();</code>

@@ -1,0 +1,88 @@
+/* Global settings */
+html, app[name=main] {
+	--scrollbar-size-1: 10px;										/* Default */
+	--scrollbar-size-2: calc(var(--scrollbar-size-1) * 0.75);		/* Styled */
+	--sys-button-font-1: var(--font-sarabun), "Open Sans", serif;	/* Main */
+	--sys-button-font-2: "Quicksand", "Sarabun", sans-serif;		/* App */
+	--sys-button-color-1: var(--clr-gg-blue-500);					/* Normal */
+	--sys-button-color-2: var(--clr-gg-blue-700);					/* Hovered Primary */
+	--sys-button-color-3: #C8C8FA7F;								/* Hovered Secondary */
+	--sys-button-text-1: var(--clr-pp-grey-50);						/* Normal */
+	--sys-button-text-2: #111111;									/* Hovered */
+	--sys-tooltip-font: "Balsamiq Sans", "Sarabun", sans-serif;
+	--sys-form-font-1: var(--font-sarabun), sans-serif;				/* Input */
+	--sys-form-font-1s: 25px;										/* Input */
+	--sys-form-font-1h: 26px;										/* Input */
+	--sys-form-font-2: var(--font-sarabun), sans-serif;				/* Label */
+	--sys-form-font-3: "Quicksand", sans-serif;						/* Autofill */
+	--sys-form-font-3s: 17.5px;										/* Autofill */
+	--sys-form-font-3c: #1A0FAA;									/* Autofill */
+	--sys-form-font-3bg: #CCE2F6;									/* Autofill */
+	--sys-hilight-color-1: #370D78;								/* Text	*/
+	--sys-hilight-color-2: #DFCCF8B0;								/* Background */
+}
+/* App settings */
+app[name=main] > header { /* Header (top tab) */
+	/* Background colors */
+	--sys-header-bg-1: var(--clr-pp-grey-100);	/* Normal */
+	--sys-header-hov-1: var(--fade-black-8);	/* Hovered */
+	--sys-header-act-bg-1: var(--fade-black-7);	/* Current page */
+	/* Shadows */
+	--sys-header-shadow-1: var(--shd-tiny) #555;		/* On top */
+	--sys-header-shadow-2: var(--shd-small) #2020203F;	/* Scrolled */
+	/* Texts */
+	--sys-header-text-font: "TH Sarabun New", "Open Sans", sans-serif;
+	--sys-header-text-clr-1: var(--fade-black-2);				/* Normal */
+	--sys-header-text-clr-2: var(--clr-main-black-absolute);	/* Hovered */
+	--sys-header-text-clr-3: var(--clr-pp-pink-a100);			/* Active */
+	--sys-header-text-clr-4: #15499A;							/* Current page */
+	--sys-header-text-size-1: 17.5px;							/* Normal */
+	--sys-header-text-size-2: 17.5px;							/* Hovered */
+	--sys-header-text-size-3: 17.5px;							/* Active */
+	--sys-header-text-size-4: 17.5px;							/* Current page */
+	/* Icons */
+	--sys-header-icon-1: var(--clr-pp-grey-700);				/* Color */
+	/* Dropdown */
+	--sys-header-dd-sep: var(--fade-black-3);
+	/* Menu toggle button */
+	--sys-navtab-btn-bg-1: var(--clr-gg-grey-500);				/* Normal */
+	--sys-navtab-btn-bg-2: var(--clr-gg-grey-500);				/* Hovered */
+}
+app[name=main] > :where(main, .navigator-tab, .lightbox) {		/* Navigator (aside tab) */
+	/* Main CSS */
+	--sys-navtab-bg-1: #EFF7FD;								/* Normal background color */
+	--sys-navtab-bd-thick: 0.5px;											/* Border thickness */
+	--sys-navtab-bd: var(--sys-navtab-bd-thick) solid var(--fade-black-8);	/* Border */
+	/* Customized CSS */
+	font-size: 25px; line-height: 1;
+	font-family: var(--font-sarabun), serif;
+}
+app[name=main] > main { /* Main (content section) */
+	--sys-main-bg-1: #F7F9FB;									/* Background color */
+}
+app[name=main] > footer { /* Footer (bottom section) */
+	--sys-footer-bg-1: var(--clr-bs-light);						/* Background color */
+	--sys-footer-head-color: var(--clr-main-black-absolute);	/* Text color */
+	--sys-footer-icon-color: var(--clr-bs-indigo);				/* Icon color */
+	--sys-footer-icon-bs: var(--clr-gg-green-100);				/* Icon border color */
+}
+/* Free element */
+app[name=main] a {
+	--sys-link-clr-1: #0D6EFD;	/* link */
+	--sys-link-clr-2: #0D6EFD;	/* visited */
+	--sys-link-clr-3: #0D6EFD;	/* hover */
+	--sys-link-clr-4: #0A58CA;	/* active */
+	--sys-link-clr-5: #0A58CA;	/* focus */
+}
+@media only screen and (max-width: 768px) {
+	app[name=main] > header { /* Header (top tab) */
+		/* Texts */
+		--sys-header-text-size-1: 12.5px;	/* Normal */
+		--sys-header-text-size-2: 12.5px;	/* Hovered */
+		--sys-header-text-size-3: 12.5px;	/* Active */
+		--sys-header-text-size-4: 12.5px;	/* Current page */
+	}
+	app[name=main] > :where(main, .navigator-tab, .lightbox) {		/* Navigator (aside tab) */
+		font-size: 20px;
+	}
+}

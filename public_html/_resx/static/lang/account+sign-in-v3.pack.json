@@ -1,0 +1,36 @@
+{
+	"languages": ["EN", "TH"],
+	"messages": {
+		"success": {
+			"EN": "Success <i class=\"material-icons css-text-teal\">check_circle</i>",
+			"TH": "สำเร็จ <i class=\"material-icons css-text-teal\">check_circle</i>"
+		}
+	},
+	"translations": [
+		{
+			"$": "main .auth-wrapper .form .space:nth-child(1) > label",
+			"EN": "Username / Student ID",
+			"TH": "เลขประจำตัวนักเรียน / ชื่อผู้ใช้งาน"
+		}, {
+			"$": "main .auth-wrapper .form input[name=user]%placeholder",
+			"EN": "Don't add @bodin.ac.th",
+			"TH": "ไม่ต้องใส่ @bodin.ac.th"
+		}, {
+			"$": "main .auth-wrapper .form .space:nth-child(2) > label",
+			"EN": "Password",
+			"TH": "รหัสผ่าน"
+		}, {
+			"$": "main .auth-wrapper .form button",
+			"EN": "Sign in",
+			"TH": "เข้าสู่ระบบ"
+		}, {
+			"$": "main .auth-wrapper .help > a",
+			"EN": "Forgot password",
+			"TH": "ลืมรหัสผ่าน"
+		}, {
+			"$": "main .auth-wrapper .help > label",
+			"EN": "Sign in by entering Bodindecha Internet Account's username and password then press \"Sign in\" button",
+			"TH": "เข้าสู่ระบบโดยใส่บัญชีผู้ใช้งานและรหัสเข้าใช้งานอินเทอร์เน็ตโรงเรียนแล้วกดปุ่ม \"เข้าสู่ระบบ\""
+		}
+	]
+}

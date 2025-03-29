@@ -1,0 +1,29 @@
+# ~~~~~~~~~~ Access control ~~~~~~~~~~
+
+### Handling aliases & internal domains
+# Header set Access-Control-Allow-Origin "*"
+
+### Hidden files
+# Hide .files _files.file
+<FilesMatch "^(\.|_[A-Z0-9a-z\-_.]+\.[0-9a-z]+)$">
+	Order allow,deny
+	Deny from all
+</FilesMatch>
+
+# ~~~~~~~~~~ URL edit ~~~~~~~~~~
+
+RewriteOptions Inherit
+RewriteEngine On
+RewriteBase /v2/
+
+### Duplicate from main
+# PBL System
+RewriteRule ^api/PBL/v1-teacher/([A-Z0-9a-z\-]+)$ /t/PBL/v2/api/$1 [L,QSA]
+RewriteRule ^api/PBL/v1-student/([A-Z0-9a-z\-]+)$ /s/PBL/v2/api/$1 [L,QSA]
+# Enroll
+RewriteRule ^api/enroll/v1/([A-Z0-9a-z\-]+)$ /e/enroll/api/$1 [L,QSA]
+# URL-shortener
+RewriteRule ^service/app/url-short/([@!]?[A-Z0-9a-zก-๛_\-\.()]{3,150})/link$ https://bod.in.th/$1 [L,QSA]
+RewriteRule ^service/app/url-short/([@!]?[A-Z0-9a-zก-๛_\-\.()]{3,150})/(edit|stats)$ /v2/service/app/url-short/$2?key=$1 [L,QSA]
+
+### App URLs

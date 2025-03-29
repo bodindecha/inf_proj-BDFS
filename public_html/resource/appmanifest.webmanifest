@@ -1,0 +1,17 @@
+{
+  "name": "Bodindecha (Sing Singhaseni) School's Information System",
+  "short_name": "Bodin Info-System",
+  "start_url": "/",
+  "--orientation": "any",
+  "theme_color": "#15499A",
+  "background_color": "#FFFF",
+  "description": "By : Tecillium (UFDT) | For : ICT - Bodin",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/resource/images/logo-2",
+      "sizes": "480x480",
+      "type": "image/png"
+    }
+  ]
+}

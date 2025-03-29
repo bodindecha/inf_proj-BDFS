@@ -1,0 +1,94 @@
+/* TIMINGS */
+:root, app[name=main] {
+	--time-tst-ffast: .05s; --time-tst-xfast: .15s;
+	--time-tst-fast: .3s; --time-tst-medium: .5s; --time-tst-slow: .7s;
+	--time-tst-xslow: .85s; --time-tst-fslow: 1s;
+}
+
+/* SHADOWS & FADINGS */
+:root, app[name=main] {
+	--fade-black-1: #000000FF; --fade-black-2: #000000DD; --fade-black-3: #000000BB; --fade-black-4: #00000099; --fade-black-5: #00000077; --fade-black-6: #00000055; --fade-black-7: #00000033; --fade-black-8: #00000011;
+	--fade-white-1: #FFFFFFFF; --fade-white-2: #FFFFFFDD; --fade-white-3: #FFFFFFBB; --fade-white-4: #FFFFFF99; --fade-white-5: #FFFFFF77; --fade-white-6: #FFFFFF55; --fade-white-7: #FFFFFF33; --fade-white-8: #FFFFFF11;
+	
+	--shd-tiny: 2.5px; --shd-little: 3.125px 1.875px;
+	--shd-small: 6.25px 2.5px; --shd-medium: 10px 5px; --shd-big: 12.5px 7.5px;
+	--shd-large: 18.75px 3.125px; --shd-pan: 25px 7.5px; --shd-huge: 35px;
+}
+
+/* COLOURS */
+:root, app[name=main] {
+	/* App theme */
+	--clr-main-white-absolute: #FFFFFF;
+	--clr-main-white-dim: #F7F9FB;
+	--clr-main-black-absolute: #000000;
+
+	/* Boostrap 5 */
+	--clr-bs-blue: #007BFF;
+	--clr-bs-indigo: #6610F2;
+	--clr-bs-purple: #6F42C1;
+	--clr-bs-pink: #E83E8C;
+	--clr-bs-red: #DC3545;
+	--clr-bs-orange: #FD7E14;
+	--clr-bs-yellow: #FFC107;
+	--clr-bs-green: #28A745;
+	--clr-bs-teal: #20C997;
+	--clr-bs-cyan: #17A2B8;
+	--clr-bs-white: #fff;
+	--clr-bs-gray: #6C757D;
+	--clr-bs-gray-dark: #343A40;
+	
+	--clr-bs-success: #28A745;
+	--clr-bs-info: #17A2B8;
+	--clr-bs-warning: #FFC107;
+	--clr-bs-danger: #DC3545;
+	--clr-bs-light: #F8F9FA;
+	--clr-bs-dark: #343A40;
+	
+	/* Google theme */
+	--clr-gg-red-100: #F4C7C3; --clr-gg-red-300: #E67C73; --clr-gg-red-500: #DB4437; --clr-gg-red-700: #C53929;
+	--clr-gg-blue-100: #C6DAFC; --clr-gg-blue-300: #7BAAF7; --clr-gg-blue-500: #4285F4; --clr-gg-blue-700: #3367D6;
+	--clr-gg-green-100: #B7E1CD; --clr-gg-green-300: #57BB8A; --clr-gg-green-500: #0F9D58; --clr-gg-green-700: #0B8043;
+	--clr-gg-yellow-100: #FCE8B2; --clr-gg-yellow-300: #F7CB4D; --clr-gg-yellow-500: #F4B400; --clr-gg-yellow-700: #F09300;
+	--clr-gg-grey-100: #F5F5F5; --clr-gg-grey-300: #E0E0E0; --clr-gg-grey-500: #9E9E9E; --clr-gg-grey-700: #616161;
+	
+	/* Youtube paper */
+	--clr-pp-red-50: #FFEBEE; --clr-pp-red-100: #FFCDD2; --clr-pp-red-200: #EF9A9A; --clr-pp-red-300: #E57373; --clr-pp-red-400: #EF5350; --clr-pp-red-500: #F44336; --clr-pp-red-600: #E53935; --clr-pp-red-700: #D32F2F; --clr-pp-red-800: #C62828; --clr-pp-red-900: #B71C1C;
+	--clr-pp-red-a100: #FF8A80; --clr-pp-red-a200: #FF5252; --clr-pp-red-a400: #FF1744; --clr-pp-red-a700: #D50000;
+	--clr-pp-pink-50: #FCE4EC; --clr-pp-pink-100: #F8BBD0; --clr-pp-pink-200: #F48FB1; --clr-pp-pink-300: #F06292; --clr-pp-pink-400: #EC407A; --clr-pp-pink-500: #E91E63; --clr-pp-pink-600: #D81B60; --clr-pp-pink-700: #C2185B; --clr-pp-pink-800: #AD1457; --clr-pp-pink-900: #880E4F;
+	--clr-pp-pink-a100: #FF80AB; --clr-pp-pink-a200: #FF4081; --clr-pp-pink-a400: #F50057; --clr-pp-pink-a700: #C51162; --clr-pp-purple-50: #F3E5F5; --clr-pp-purple-100: #E1BEE7; --clr-pp-purple-200: #CE93D8; --clr-pp-purple-300: #BA68C8; --clr-pp-purple-400: #AB47BC; --clr-pp-purple-500: #9C27B0; --clr-pp-purple-600: #8E24AA; --clr-pp-purple-700: #7B1FA2; --clr-pp-purple-800: #6A1B9A; --clr-pp-purple-900: #4A148C;
+	--clr-pp-purple-a100: #EA80FC; --clr-pp-purple-a200: #E040FB; --clr-pp-purple-a400: #D500F9; --clr-pp-purple-a700: #AA00FF;
+	--clr-pp-deep-purple-50: #EDE7F6; --clr-pp-deep-purple-100: #D1C4E9; --clr-pp-deep-purple-200: #B39DDB; --clr-pp-deep-purple-300: #9575CD; --clr-pp-deep-purple-400: #7E57C2; --clr-pp-deep-purple-500: #673AB7; --clr-pp-deep-purple-600: #5E35B1; --clr-pp-deep-purple-700: #512DA8; --clr-pp-deep-purple-800: #4527A0; --clr-pp-deep-purple-900: #311B92;
+	--clr-pp-deep-purple-a100: #B388FF; --clr-pp-deep-purple-a200: #7C4DFF; --clr-pp-deep-purple-a400: #651FFF; --clr-pp-deep-purple-a700: #6200EA;
+	--clr-pp-indigo-50: #E8EAF6; --clr-pp-indigo-100: #C5CAE9; --clr-pp-indigo-200: #9FA8DA; --clr-pp-indigo-300: #7986CB; --clr-pp-indigo-400: #5C6BC0; --clr-pp-indigo-500: #3F51B5; --clr-pp-indigo-600: #3949AB; --clr-pp-indigo-700: #303F9F; --clr-pp-indigo-800: #283593; --clr-pp-indigo-900: #1A237E;
+	--clr-pp-indigo-a100: #8C9EFF; --clr-pp-indigo-a200: #536DFE; --clr-pp-indigo-a400: #3D5AFE; --clr-pp-indigo-a700: #304FFE;
+	--clr-pp-blue-50: #E3F2FD; --clr-pp-blue-100: #BBDEFB; --clr-pp-blue-200: #90CAF9; --clr-pp-blue-300: #64B5F6; --clr-pp-blue-400: #42A5F5; --clr-pp-blue-500: #2196F3; --clr-pp-blue-600: #1E88E5; --clr-pp-blue-700: #1976D2; --clr-pp-blue-800: #1565C0; --clr-pp-blue-900: #0D47A1;
+	--clr-pp-blue-a100: #82B1FF; --clr-pp-blue-a200: #448AFF; --clr-pp-blue-a400: #2979FF; --clr-pp-blue-a700: #2962FF;
+	--clr-pp-light-blue-50: #E1F5FE; --clr-pp-light-blue-100: #B3E5FC; --clr-pp-light-blue-200: #81D4FA; --clr-pp-light-blue-300: #4FC3F7; --clr-pp-light-blue-400: #29B6F6; --clr-pp-light-blue-500: #03A9F4; --clr-pp-light-blue-600: #039BE5; --clr-pp-light-blue-700: #0288D1; --clr-pp-light-blue-800: #0277BD; --clr-pp-light-blue-900: #01579B;
+	--clr-pp-light-blue-a100: #80D8FF; --clr-pp-light-blue-a200: #40C4FF; --clr-pp-light-blue-a400: #00B0FF; --clr-pp-light-blue-a700: #0091EA;
+	--clr-pp-cyan-50: #E0F7FA; --clr-pp-cyan-100: #B2EBF2; --clr-pp-cyan-200: #80DEEA; --clr-pp-cyan-300: #4DD0E1; --clr-pp-cyan-400: #26C6DA; --clr-pp-cyan-500: #00BCD4; --clr-pp-cyan-600: #00ACC1; --clr-pp-cyan-700: #0097A7; --clr-pp-cyan-800: #00838F; --clr-pp-cyan-900: #006064;
+	--clr-pp-cyan-a100: #84FFFF; --clr-pp-cyan-a200: #18FFFF; --clr-pp-cyan-a400: #00E5FF; --clr-pp-cyan-a700: #00B8D4;
+	--clr-pp-teal-50: #E0F2F1; --clr-pp-teal-100: #B2DFDB; --clr-pp-teal-200: #80CBC4; --clr-pp-teal-300: #4DB6AC; --clr-pp-teal-400: #26A69A; --clr-pp-teal-500: #009688; --clr-pp-teal-600: #00897B; --clr-pp-teal-700: #00796B; --clr-pp-teal-800: #00695C; --clr-pp-teal-900: #004D40;
+	--clr-pp-teal-a100: #A7FFEB; --clr-pp-teal-a200: #64FFDA; --clr-pp-teal-a400: #1DE9B6; --clr-pp-teal-a700: #00BFA5;
+	--clr-pp-green-50: #E8F5E9; --clr-pp-green-100: #C8E6C9; --clr-pp-green-200: #A5D6A7; --clr-pp-green-300: #81C784; --clr-pp-green-400: #66BB6A; --clr-pp-green-500: #4CAF50; --clr-pp-green-600: #43A047; --clr-pp-green-700: #388E3C; --clr-pp-green-800: #2E7D32; --clr-pp-green-900: #1B5E20;
+	--clr-pp-green-a100: #B9F6CA; --clr-pp-green-a200: #69F0AE; --clr-pp-green-a400: #00E676; --clr-pp-green-a700: #00C853;
+	--clr-pp-light-green-50: #F1F8E9; --clr-pp-light-green-100: #DCEDC8; --clr-pp-light-green-200: #C5E1A5; --clr-pp-light-green-300: #AED581; --clr-pp-light-green-400: #9CCC65; --clr-pp-light-green-500: #8BC34A; --clr-pp-light-green-600: #7CB342; --clr-pp-light-green-700: #689F38; --clr-pp-light-green-800: #558B2F; --clr-pp-light-green-900: #33691E;
+	--clr-pp-light-green-a100: #CCFF90; --clr-pp-light-green-a200: #B2FF59; --clr-pp-light-green-a400: #76FF03; --clr-pp-light-green-a700: #64DD17;
+	--clr-pp-lime-50: #F9FBE7; --clr-pp-lime-100: #F0F4C3; --clr-pp-lime-200: #E6EE9C; --clr-pp-lime-300: #DCE775; --clr-pp-lime-400: #D4E157; --clr-pp-lime-500: #CDDC39; --clr-pp-lime-600: #C0CA33; --clr-pp-lime-700: #AFB42B; --clr-pp-lime-800: #9E9D24; --clr-pp-lime-900: #827717;
+	--clr-pp-lime-a100: #F4FF81; --clr-pp-lime-a200: #EEFF41; --clr-pp-lime-a400: #C6FF00; --clr-pp-lime-a700: #AEEA00;
+	--clr-pp-yellow-50: #FFFDE7; --clr-pp-yellow-100: #FFF9C4; --clr-pp-yellow-200: #FFF59D; --clr-pp-yellow-300: #FFF176; --clr-pp-yellow-400: #FFEE58; --clr-pp-yellow-500: #FFEB3B; --clr-pp-yellow-600: #FDD835; --clr-pp-yellow-700: #FBC02D; --clr-pp-yellow-800: #F9A825; --clr-pp-yellow-900: #F57F17;
+	--clr-pp-yellow-a100: #FFFF8D; --clr-pp-yellow-a200: #FFFF00; --clr-pp-yellow-a400: #FFEA00; --clr-pp-yellow-a700: #FFD600;
+	--clr-pp-amber-50: #FFF8E1; --clr-pp-amber-100: #FFECB3; --clr-pp-amber-200: #FFE082; --clr-pp-amber-300: #FFD54F; --clr-pp-amber-400: #FFCA28; --clr-pp-amber-500: #FFC107; --clr-pp-amber-600: #FFB300; --clr-pp-amber-700: #FFA000; --clr-pp-amber-800: #FF8F00; --clr-pp-amber-900: #FF6F00;
+	--clr-pp-amber-a100: #FFE57F; --clr-pp-amber-a200: #FFD740; --clr-pp-amber-a400: #FFC400; --clr-pp-amber-a700: #FFAB00;
+	--clr-pp-orange-50: #FFF3E0; --clr-pp-orange-100: #FFE0B2; --clr-pp-orange-200: #FFCC80; --clr-pp-orange-300: #FFB74D; --clr-pp-orange-400: #FFA726; --clr-pp-orange-500: #FF9800; --clr-pp-orange-600: #FB8C00; --clr-pp-orange-700: #F57C00; --clr-pp-orange-800: #EF6C00; --clr-pp-orange-900: #E65100;
+	--clr-pp-orange-a100: #FFD180; --clr-pp-orange-a200: #FFAB40; --clr-pp-orange-a400: #FF9100; --clr-pp-orange-a700: #FF6500;
+	--clr-pp-deep-orange-50: #FBE9E7; --clr-pp-deep-orange-100: #FFCCBC; --clr-pp-deep-orange-200: #FFAB91; --clr-pp-deep-orange-300: #FF8A65; --clr-pp-deep-orange-400: #FF7043; --clr-pp-deep-orange-500: #FF5722; --clr-pp-deep-orange-600: #F4511E; --clr-pp-deep-orange-700: #E64A19; --clr-pp-deep-orange-800: #D84315; --clr-pp-deep-orange-900: #BF360C;
+	--clr-pp-deep-orange-a100: #FF9E80; --clr-pp-deep-orange-a200: #FF6E40; --clr-pp-deep-orange-a400: #FF3D00; --clr-pp-deep-orange-a700: #DD2C00;
+	--clr-pp-brown-50: #EFEBE9; --clr-pp-brown-100: #D7CCC8; --clr-pp-brown-200: #BCAAA4; --clr-pp-brown-300: #A1887F; --clr-pp-brown-400: #8D6E63; --clr-pp-brown-500: #795548; --clr-pp-brown-600: #6D4C41; --clr-pp-brown-700: #5D4037; --clr-pp-brown-800: #4E342E; --clr-pp-brown-900: #3E2723;
+	--clr-pp-grey-50: #FAFAFA; --clr-pp-grey-100: #F5F5F5; --clr-pp-grey-200: #EEEEEE; --clr-pp-grey-300: #E0E0E0; --clr-pp-grey-400: #BDBDBD; --clr-pp-grey-500: #9E9E9E; --clr-pp-grey-600: #757575; --clr-pp-grey-700: #616161; --clr-pp-grey-800: #424242; --clr-pp-grey-900: #212121;
+	--clr-pp-blue-grey-50: #ECEFF1; --clr-pp-blue-grey-100: #CFD8DC; --clr-pp-blue-grey-200: #B0BEC5; --clr-pp-blue-grey-300: #90A4AE; --clr-pp-blue-grey-400: #78909C; --clr-pp-blue-grey-500: #607D8B; --clr-pp-blue-grey-600: #546E7A; --clr-pp-blue-grey-700: #455A64; --clr-pp-blue-grey-800: #37474F; --clr-pp-blue-grey-900: #263238;
+}
+
+/* FONTS */
+:root, app[name=main] {
+	--font-sarabun: "TH Sarabun PSK", "Sarabun", "TH Sarabun New";
+}

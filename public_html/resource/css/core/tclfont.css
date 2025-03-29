@@ -1,0 +1,14 @@
+@font-face {
+	font-family: 'TianTcl-en_01';
+	src: url('/resource/fonts/TianTcl-en_01.woff') format('woff'),
+		url('/resource/fonts/TianTcl-en_01.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'TianTcl-th_01';
+	src: url('/resource/fonts/TianTcl-th_01.woff') format('woff'),
+		url('/resource/fonts/TianTcl-th_01.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}

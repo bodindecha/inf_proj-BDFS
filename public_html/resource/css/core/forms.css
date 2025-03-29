@@ -1,0 +1,182 @@
+/* Form interactives */
+input, select, textarea {
+	margin: 0; padding: 0;
+	border-radius: none; border: none; box-shadow: none; -webkit-box-shadow: none;
+}
+input[type="radio"], input[type="checkbox"], input[type="range"], input[type="image"] {
+	margin: initial; padding: initial;
+	border-radius: initial; border: initial; box-shadow: initial; -webkit-box-shadow: initial;
+}
+/* Checkbox */
+.form input[type="checkbox"] {
+	margin: 2.5px 5px;
+	width: 20px; height: 20px;
+	appearance: none; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; -o-appearance: none;
+}
+.form input[type="checkbox"]:before {
+	width: 20px; height: 20px;
+	background-color: var(--clr-gg-grey-500); box-shadow: 1.25px 1.25px var(--shd-tiny) var(--fade-black-6); -webkit-box-shadow: 1.25px 1.25px var(--shd-tiny) var(--fade-black-6);
+	border-radius: 10px;
+	display: inline-block; content: "";
+	cursor: pointer; transition: var(--time-tst-fast);
+}
+.form input[type="checkbox"]:checked:before { background-color: var(--clr-bs-green); }
+.form input.switch[type="checkbox"], .form input.switch[type="checkbox"]:before { width: 40px; }
+.form input.lever[type="checkbox"], .form input.lever[type="checkbox"]:before { height: 40px; }
+.form input[type="checkbox"]:after {
+	width: 16.25px; height: 16.25px;
+	background-color: var(--clr-gg-grey-100);
+	border-radius: 8.125px;
+	display: inline-block; content: "";
+	cursor: pointer; transition: var(--time-tst-fast);
+}
+.form input.emphasize[type="checkbox"]:after {
+	width: 14.25px; height: 14.25px;
+	border: 1px solid var(--clr-gg-grey-300);
+}
+.form input.switch[type="checkbox"]:after { transform: translate(calc(-100% - 21.25px), -2px); }
+.form input.switch[type="checkbox"]:checked:after { transform: translate(calc(-100% - 2.75px), -2px); }
+.form input.emphasize.switch[type="checkbox"]:after { transform: translate(calc(-100% - 22.25px), -1.25px) scale(1.5); }
+.form input.emphasize.switch[type="checkbox"]:checked:after { transform: translate(calc(-100% - 1.75px), -1.25px) scale(1.5); border: 1px solid var(--clr-bs-green); }
+.form input.lever[type="checkbox"]:after { transform: translate(calc(-100% - 1.75px), -2.25px); }
+.form input.lever[type="checkbox"]:checked:after { transform: translate(calc(-100% - 1.75px), -21.75px); }
+.form input.emphasize.lever[type="checkbox"]:after { transform: translate(calc(-100% - 1.75px), -1.25px) scale(1.5); }
+.form input.emphasize.lever[type="checkbox"]:checked:after { transform: translate(calc(-100% - 1.75px), -22.75px) scale(1.5); border: 1px solid var(--clr-bs-green); }
+.form input.v2.switch[type="checkbox"]:after { transform: translate(calc(100% - 13.5px), calc(-100% - 4.625px)); }
+.form input.v2.switch[type="checkbox"]:checked:after { transform: translate(calc(100% + 5px), calc(-100% - 4.625px)); }
+.form input.v2.emphasize.switch[type="checkbox"]:after { transform: translate(calc(100% - 14.5px), calc(-100% - 3.875px)) scale(1.5); }
+.form input.v2.emphasize.switch[type="checkbox"]:checked:after { transform: translate(calc(100% + 6px), calc(-100% - 3.875px)) scale(1.5); border: 1px solid var(--clr-bs-green); }
+.form input.v2.lever[type="checkbox"]:after { transform: translate(2px, -21.75px); }
+.form input.v2.lever[type="checkbox"]:checked:after { transform: translate(2px, -40.75px); }
+.form input.v2.emphasize.lever[type="checkbox"]:after { transform: translate(2px, -20.75px) scale(1.5); }
+.form input.v2.emphasize.lever[type="checkbox"]:checked:after { transform: translate(2px, -41.75px) scale(1.5); border: 1px solid var(--clr-bs-green); }
+.form {
+	--form-bdr: 1px solid #CED4DA /*var(--clr-bs-gray-dark)*/;
+	--form-bdr-rad: 0.3rem;
+}
+.form:not(.modern) { display: flex; gap: 10px; }
+.form:not(.inline):not(.modern) { flex-direction: column; }
+.form.inline:not(.modern) { flex-wrap: wrap; }
+.form.inline:not(.modern) > span { line-height: 2.25; }
+.form:not(.modern) .group { display: flex; flex-direction: row; align-items: stretch; /* flex-wrap: wrap; */ }
+.form.inline:not(.modern) > * { display: inline-flex; }
+.form:not(.inline):not(.modern) > .message { margin: 5px 0; }
+.form:not(.modern) .group.inline { display: inline-flex; }
+.form:not(.modern) .group.center { justify-content: center; }
+.form:not(.modern) .group.right { justify-content: flex-end; }
+.form:not(.modern) .group.spread { justify-content: /* space-evenly */ space-around; }
+.form:not(.modern) .group.split { justify-content: space-between; }
+.form:not(.modern) .group:not(.spread):not(.split) > * { border-radius: 0; }
+.form:not(.modern) .group:not(.spread):not(.split) > *:first-child { border-top-left-radius: var(--form-bdr-rad); border-bottom-left-radius: var(--form-bdr-rad); }
+.form:not(.modern) .group:not(.spread):not(.split) > *:last-child { border-top-right-radius: var(--form-bdr-rad); border-bottom-right-radius: var(--form-bdr-rad); }
+.form:not(.modern) .group:not(.spread):not(.split) > *:not(:last-child) { border-right: none; }
+.form:not(.modern) .group > span {
+	padding: 5px 10px;
+	color: #212529; text-align: center; white-space: nowrap;
+	background-color: #E9ECEF;
+	border: var(--form-bdr);
+	display: flex; align-items: center;
+}
+.form:not(.modern) .group.pill > *:first-child { border-radius: 3em 0 0 3em !important; }
+.form:not(.modern) .group.pill > *:last-child { border-radius: 0 3em 3em 0 !important; }
+.form select {
+	padding: 5px;
+	width: 100%;
+	font-family: "Sarabun", sans-serif; font-size: 1.025em;
+	border-radius: var(--form-bdr-rad); border: var(--form-bdr);
+	background-color: var(--sys-main-bg-1);
+	transition: var(--time-tst-fast);
+}
+.form.inline select { width: fit-content; }
+.form select:focus {
+	/* border-radius: 2.5px 2.5px 0 0; */
+	border-color: var(--clr-bs-blue);
+	box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+	-webkit-box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+.form:not(.modern) input[type="text"], .form:not(.modern) input[type="number"], .form:not(.modern) input[type="tel"], .form:not(.modern) input[type="email"], .form:not(.modern) input[type="url"], .form:not(.modern) input[type="color"], .form:not(.modern) input[type="date"], .form:not(.modern) input[type="datetime-local"], .form:not(.modern) input[type="month"], .form:not(.modern) input[type="password"], .form:not(.modern) input[type="search"], .form:not(.modern) input[type="time"], .form:not(.modern) input[type="week"], .form:not(.modern) input[type="new-password"], .form:not(.modern) textarea {
+	padding: 5px 10px;
+	width: calc(100% - 22.5px);
+	font-family: "Sarabun", "Open Sans", sans-serif; font-size: 1em;
+	border: var(--form-bdr); border-radius: 5px;
+	transition: var(--time-tst-fast);
+}
+.form:not(.modern) input[type="text"]:not([readonly]):focus, .form:not(.modern) input[type="number"]:not([readonly]):focus, .form:not(.modern) input[type="tel"]:not([readonly]):focus, .form:not(.modern) input[type="email"]:not([readonly]):focus, .form:not(.modern) input[type="url"]:not([readonly]):focus, .form:not(.modern) input[type="color"]:not([readonly]):focus, .form:not(.modern) input[type="date"]:not([readonly]):focus, .form:not(.modern) input[type="datetime-local"]:not([readonly]):focus, .form:not(.modern) input[type="month"]:not([readonly]):focus, .form:not(.modern) input[type="password"]:not([readonly]):focus, .form:not(.modern) input[type="search"]:not([readonly]):focus, .form:not(.modern) input[type="time"]:not([readonly]):focus, .form:not(.modern) input[type="week"]:not([readonly]):focus, .form:not(.modern) input[type="new-password"]:not([readonly]):focus, .form:not(.modern) textarea:not([readonly]):focus {
+	border-color: var(--clr-bs-blue);
+	box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+	-webkit-box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+.form:not(.modern) input[type="text"]:invalid, .form:not(.modern) input[type="number"]:invalid, .form:not(.modern) input[type="tel"]:invalid, .form:not(.modern) input[type="email"]:invalid, .form:not(.modern) input[type="url"]:invalid, .form:not(.modern) input[type="color"]:invalid, .form:not(.modern) input[type="date"]:invalid, .form:not(.modern) input[type="datetime-local"]:invalid, .form:not(.modern) input[type="month"]:invalid, .form:not(.modern) input[type="password"]:invalid, .form:not(.modern) input[type="search"]:invalid, .form:not(.modern) input[type="time"]:invalid, .form:not(.modern) input[type="week"]:invalid, .form:not(.modern) input[type="new-password"]:invalid, .form:not(.modern) textarea:invalid, .form:not(.modern) input[type="text"][invalid], .form:not(.modern) input[type="number"][invalid], .form:not(.modern) input[type="tel"][invalid], .form:not(.modern) input[type="email"][invalid], .form:not(.modern) input[type="url"][invalid], .form:not(.modern) input[type="color"][invalid], .form:not(.modern) input[type="date"][invalid], .form:not(.modern) input[type="datetime-local"][invalid], .form:not(.modern) input[type="month"][invalid], .form:not(.modern) input[type="password"][invalid], .form:not(.modern) input[type="search"][invalid], .form:not(.modern) input[type="time"][invalid], .form:not(.modern) input[type="week"][invalid], .form:not(.modern) input[type="new-password"][invalid], .form:not(.modern) textarea[invalid] { border-color: var(--clr-bs-red) !important; }
+.form:not(.modern) input[type="text"]:not([readonly]):invalid:focus, .form:not(.modern) input[type="number"]:not([readonly]):invalid:focus, .form:not(.modern) input[type="tel"]:not([readonly]):invalid:focus, .form:not(.modern) input[type="email"]:not([readonly]):invalid:focus, .form:not(.modern) input[type="url"]:not([readonly]):invalid:focus, .form:not(.modern) input[type="color"]:not([readonly]):invalid:focus, .form:not(.modern) input[type="date"]:not([readonly]):invalid:focus, .form:not(.modern) input[type="datetime-local"]:not([readonly]):invalid:focus, .form:not(.modern) input[type="month"]:not([readonly]):invalid:focus, .form:not(.modern) input[type="password"]:not([readonly]):invalid:focus, .form:not(.modern) input[type="search"]:not([readonly]):invalid:focus, .form:not(.modern) input[type="time"]:not([readonly]):invalid:focus, .form:not(.modern) input[type="week"]:not([readonly]):invalid:focus, .form:not(.modern) input[type="new-password"]:not([readonly]):invalid:focus, .form:not(.modern) textarea:not([readonly]):invalid:focus, .form:not(.modern) input[type="text"][invalid]:not([readonly]):focus, .form:not(.modern) input[type="number"][invalid]:not([readonly]):focus, .form:not(.modern) input[type="tel"][invalid]:not([readonly]):focus, .form:not(.modern) input[type="email"][invalid]:not([readonly]):focus, .form:not(.modern) input[type="url"][invalid]:not([readonly]):focus, .form:not(.modern) input[type="color"][invalid]:not([readonly]):focus, .form:not(.modern) input[type="date"][invalid]:not([readonly]):focus, .form:not(.modern) input[type="datetime-local"][invalid]:not([readonly]):focus, .form:not(.modern) input[type="month"][invalid]:not([readonly]):focus, .form:not(.modern) input[type="password"][invalid]:not([readonly]):focus, .form:not(.modern) input[type="search"][invalid]:not([readonly]):focus, .form:not(.modern) input[type="time"][invalid]:not([readonly]):focus, .form:not(.modern) input[type="week"][invalid]:not([readonly]):focus, .form:not(.modern) input[type="new-password"][invalid]:not([readonly]):focus, .form:not(.modern) textarea[invalid]:not([readonly]):focus { box-shadow: 0 0 0 0.25rem rgb(220 53 69 / 37.5%); -webkit-box-shadow: 0 0 0 0.25rem rgb(220 53 69 / 37.5%); }
+.form:not(.modern) input[type="text"][readonly], .form:not(.modern) input[type="number"][readonly], .form:not(.modern) input[type="tel"][readonly], .form:not(.modern) input[type="email"][readonly], .form:not(.modern) input[type="url"][readonly], .form:not(.modern) input[type="color"][readonly], .form:not(.modern) input[type="date"][readonly], .form:not(.modern) input[type="datetime-local"][readonly], .form:not(.modern) input[type="month"][readonly], .form:not(.modern) input[type="password"][readonly], .form:not(.modern) input[type="search"][readonly], .form:not(.modern) input[type="time"][readonly], .form:not(.modern) input[type="week"][readonly], .form:not(.modern) input[type="new-password"][readonly], .form:not(.modern) textarea[readonly] { cursor: default; }
+.form.inline:not(.modern) input[type="text"], .form.inline:not(.modern) input[type="number"], .form.inline:not(.modern) input[type="tel"], .form.inline:not(.modern) input[type="email"], .form.inline:not(.modern) input[type="url"], .form.inline:not(.modern) input[type="color"], .form.inline:not(.modern) input[type="date"], .form.inline:not(.modern) input[type="datetime-local"], .form.inline:not(.modern) input[type="month"], .form.inline:not(.modern) input[type="password"], .form.inline:not(.modern) input[type="search"], .form.inline:not(.modern) input[type="time"], .form.inline:not(.modern) input[type="week"], .form.inline:not(.modern) input[type="new-password"], .form.inline:not(.modern) textarea:focus { width: fit-content; }
+@media only screen and (max-width: 768px) {
+	.form:not(.modern) input[type="text"], .form:not(.modern) input[type="number"], .form:not(.modern) input[type="tel"], .form:not(.modern) input[type="email"], .form:not(.modern) input[type="url"], .form:not(.modern) input[type="color"], .form:not(.modern) input[type="date"], .form:not(.modern) input[type="datetime-local"], .form:not(.modern) input[type="month"], .form:not(.modern) input[type="password"], .form:not(.modern) input[type="search"], .form:not(.modern) input[type="time"], .form:not(.modern) input[type="week"], .form:not(.modern) input[type="new-password"], .form:not(.modern) textarea { padding: 2.5px 5px; }
+}
+.form:not(.modern) .file-box {
+	margin: 0 auto 10px;
+	width: 480px; height: 270px;
+	border-radius: 5px; border: 2.5px dashed var(--clr-bs-gray);
+	background-color: var(--clr-gg-grey-300); background-size: contain; background-repeat: no-repeat; background-position: center;
+	/* display: flex; justify-content: center; */
+	overflow: hidden; transition: var(--time-tst-fast);
+}
+.form:not(.modern) .file-box:after {
+	margin: auto;
+	position: relative; top: -50%; transform: translateY(-100%);
+	text-align: center; text-shadow: 1.25px 1.25px #FFFA;
+	display: block; content: "Drag & Drop your file here or Browse";
+	pointer-events: none;
+}
+.form:not(.modern) .file-box[data-placeholder]:after { content: attr(data-placeholder); }
+.form:not(.modern) input[type="file"] {
+	margin: auto;
+	width: 100%; height: 100%; transform: translateY(-2.5px);
+	opacity: 0%; filter: opacity(0%);
+}
+.form:not(.modern) .file-box:focus-within {
+	border-color: var(--clr-bs-blue);
+	box-shadow: 0px 0px 0px 0.25rem rgb(13 110 253 / 25%);
+	-webkit-box-shadow: 0px 0px 0px 0.25rem rgb(13 110 253 / 25%);
+}
+main .upload-icon {
+	transform: scale(1.25);
+	color: var(--clr-gg-blue-700);
+	display: flex; justify-content: center; align-items: end; gap: 5px;
+}
+main .upload-icon .animation {
+	transform: scaleY(-1);
+	display: flex; align-items: baseline; overflow-y: hidden;
+	animation: uploading 1.5s ease-in-out infinite forwards;
+}
+@keyframes uploading {
+	from { height: 0px; }
+	95%, to { height: 24px; }
+}
+main .upload-icon .animation > i { transform: scaleY(-1); }
+/* ADDITIONAL */
+/* share dialog */
+div.sharer table { width: 100%; }
+div.sharer table tr td {
+	--abtn-height: 25px;
+	padding: 5px;
+}
+div.sharer table tr td a {
+	text-align: left;
+	display: flex;
+}
+div.sharer table tr td a img, div.sharer table tr td a i {
+	width: var(--abtn-height); height: var(--abtn-height);
+	font-size: 24px; line-height: var(--abtn-height); text-decoration: none;
+	color: var(--clr-main-white-absolute); text-align: center;
+	object-fit: contain;
+}
+div.sharer table tr td a span {
+	margin-left: 7.5px;
+	font-size: 15px; line-height: var(--abtn-height); font-weight: bold;
+}
+div.sharer center { margin: 10px 0; }
+div.sharer center button {
+	padding: 2.5px 20px;
+	font-size: 15px; font-weight: bold;
+}

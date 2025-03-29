@@ -1,0 +1,354 @@
+app[name=main] .bg-spotlight {
+	background-blend-mode: overlay;
+	background-size: cover;
+	transition: all var(--time-tst-fast) ease-out, background-color var(--time-tst-slow), background-image var(--time-tst-slow);
+}
+app[name=main] .bg-spotlight.bg-spotlight-001 {
+	background-color: var(--fade-white-2) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-001.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-002 {
+	background-color: rgba(255, 255, 255, 0.9294117647) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-002.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-003 {
+	background-color: var(--fade-white-2) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-003.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-004 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-004.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-005 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-005.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-006 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-006.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-007 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-007.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-008 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-008.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-009 {
+	background-color: rgba(255, 255, 255, 0.6784313725) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-009.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-010 {
+	background-color: rgba(255, 255, 255, 0.6784313725) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-010.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-011 {
+	background-color: var(--fade-white-2) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-011.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-012 {
+	background-color: var(--fade-white-2) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-012.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-013 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-013.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-014 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-014.jpg");
+	background-position-x: right;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-015 {
+	background-color: var(--fade-white-2) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-015.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-016 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-016.jpg");
+	background-position-x: center;
+	background-position-y: top;
+}
+app[name=main] .bg-spotlight.bg-spotlight-017 {
+	background-color: var(--fade-white-2) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-017.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-018 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-018.jpg");
+	background-position-x: center;
+	background-position-y: top;
+}
+app[name=main] .bg-spotlight.bg-spotlight-019 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-019.jpg");
+	background-position-x: center;
+	background-position-y: 35%;
+}
+app[name=main] .bg-spotlight.bg-spotlight-020 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-020.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-021 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-021.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-022 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-022.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-023 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-023.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-024 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-024.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-025 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-025.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-026 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-026.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-027 {
+	background-color: var(--fade-white-2) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-027.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-028 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-028.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-029 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-029.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-030 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-030.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-031 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-031.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-032 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-032.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-033 {
+	background-color: var(--fade-white-2) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-033.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-034 {
+	background-color: rgba(255, 255, 255, 0.8039215686) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-034.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-035 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-035.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-036 {
+	background-color: rgba(255, 255, 255, 0.8039215686) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-036.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-037 {
+	background-color: var(--fade-white-2) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-037.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-038 {
+	background-color: rgba(255, 255, 255, 0.8039215686) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-038.jpg");
+	background-position-x: center;
+	background-position-y: 60%;
+}
+app[name=main] .bg-spotlight.bg-spotlight-039 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-039.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-040 {
+	background-color: var(--fade-white-2) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-040.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-041 {
+	background-color: rgba(255, 255, 255, 0.8039215686) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-041.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-042 {
+	background-color: rgba(255, 255, 255, 0.8039215686) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-042.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-043 {
+	background-color: var(--fade-white-2) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-043.jpg");
+	background-position-x: center;
+	background-position-y: 65%;
+}
+app[name=main] .bg-spotlight.bg-spotlight-044 {
+	background-color: rgba(255, 255, 255, 0.8745098039) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-044.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-045 {
+	background-color: var(--fade-white-2) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-045.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-046 {
+	background-color: var(--fade-white-2) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-046.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-047 {
+	background-color: rgba(255, 255, 255, 0.8745098039) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-047.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-048 {
+	background-color: var(--fade-white-2) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-048.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-049 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-049.jpg");
+	background-position-x: center;
+	background-position-y: 35%;
+}
+app[name=main] .bg-spotlight.bg-spotlight-050 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-050.jpg");
+	background-position-x: 75%;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-051 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-051.jpg");
+	background-position-x: center;
+	background-position-y: 75%;
+}
+app[name=main] .bg-spotlight.bg-spotlight-052 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-052.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-053 {
+	background-color: var(--fade-white-2) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-053.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-054 {
+	background-color: rgba(255, 255, 255, 0.8039215686) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-054.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-055 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-055.jpg");
+	background-position-x: center;
+	background-position-y: bottom;
+}
+app[name=main] .bg-spotlight.bg-spotlight-056 {
+	background-color: var(--fade-white-3) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-056.jpg");
+	background-position-x: center;
+	background-position-y: center;
+}
+app[name=main] .bg-spotlight.bg-spotlight-057 {
+	background-color: rgba(255, 255, 255, 0.8039215686) !important;
+	background-image: url("/_resx/upload/img/bg/home/BD-spotlight-057.jpg");
+	background-position-x: left;
+	background-position-y: center;
+}
+@media only screen and (max-width: 768px) {
+	app[name=main] .bg-spotlight.bg-spotlight-004 {
+		background-position-y: top;
+	}
+}
+
+/*# sourceMappingURL=map/spotlight-background.css.map */

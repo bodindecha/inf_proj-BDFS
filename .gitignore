@@ -1,0 +1,14 @@
+# Editor's cmd files
+*.bat
+*.bak
+
+# Libraries files
+private/script/lib/tcpdf/_fonts.zip
+public_html/resource/css/lib/**
+public_html/resource/js/lib/**
+public_html/resource/php/lib/**
+
+# Resource files (Eat up spaces)
+public_html/resource/fonts/*
+# Resource files (Duplicates)
+public_html/resource/images/logo/*

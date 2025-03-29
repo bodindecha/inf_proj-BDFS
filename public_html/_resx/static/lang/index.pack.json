@@ -1,0 +1,18 @@
+{
+	"languages": ["EN", "TH"],
+	"translations": [
+		{
+			"$": "main .logo h1",
+			"EN": "Bodindecha (Sing Singhaseni) School",
+			"TH": "โรงเรียนบดินทรเดชา (สิงห์ สิงหเสนี)"
+		}, {
+			"$": "main .logo h3",
+			"EN": "Infoservice System",
+			"TH": "ระบบสารสนเทศ"
+		}, {
+			"$": "main .portal a[role=button]",
+			"EN": "Sign in",
+			"TH": "เข้าสู่ระบบ"
+		}
+	]
+}

@@ -1,0 +1,142 @@
+/* Jokerman */
+@font-face {
+	font-family: 'Jokerman';
+	src: url('/resource/fonts/JOKERMAN.woff') format('woff'),
+		url('/resource/fonts/JOKERMAN.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+/* orange juice */
+@font-face {
+	font-family: 'orange juice';
+	src: url('/resource/fonts/orange-juice-2.0.woff') format('woff'),
+		url('/resource/fonts/orange juice 2.0.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+/* pixelmix */
+@font-face {
+	font-family: 'pixelmix';
+	src: url('/resource/fonts/pixelmix_bold.woff') format('woff'),
+		url('/resource/fonts/pixelmix_bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'pixelmix';
+	src: url('/resource/fonts/pixelmix.woff') format('woff'),
+		url('/resource/fonts/pixelmix.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+/* THKodchasal */
+@font-face {
+	font-family: 'THKodchasal';
+	src: url('/resource/fonts/th_kodchasal_bold_italic-webfont.eot');
+	src: url('/resource/fonts/th_kodchasal_bold_italic-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('/resource/fonts/th_kodchasal_bold_italic-webfont.woff') format('woff'),
+		 url('/resource/fonts/th_kodchasal_bold_italic-webfont.ttf') format('truetype');
+	font-weight: bold;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'THKodchasal';
+	src: url('/resource/fonts/th_kodchasal_bold-webfont.eot');
+	src: url('/resource/fonts/th_kodchasal_bold-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('/resource/fonts/th_kodchasal_bold-webfont.woff') format('woff'),
+		 url('/resource/fonts/th_kodchasal_bold-webfont.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'THKodchasal';
+	src: url('/resource/fonts/th_kodchasal_italic-webfont.eot');
+	src: url('/resource/fonts/th_kodchasal_italic-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('/resource/fonts/th_kodchasal_italic-webfont.woff') format('woff'),
+		 url('/resource/fonts/th_kodchasal_italic-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'THKodchasal';
+	src: url('/resource/fonts/th_kodchasal-webfont.eot');
+	src: url('/resource/fonts/th_kodchasal-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('/resource/fonts/th_kodchasal-webfont.woff') format('woff'),
+		 url('/resource/fonts/th_kodchasal-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+/* THKrub */
+@font-face {
+	font-family: 'THKrub';
+	src: url('/resource/fonts/th_krub_bold_italic-webfont.eot');
+	src: url('/resource/fonts/th_krub_bold_italic-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('/resource/fonts/th_krub_bold_italic-webfont.woff') format('woff'),
+		 url('/resource/fonts/th_krub_bold_italic-webfont.ttf') format('truetype');
+	font-weight: bold;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'THKrub';
+	src: url('/resource/fonts/th_krub_bold-webfont.eot');
+	src: url('/resource/fonts/th_krub_bold-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('/resource/fonts/th_krub_bold-webfont.woff') format('woff'),
+		 url('/resource/fonts/th_krub_bold-webfont.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'THKrub';
+	src: url('/resource/fonts/th_krub_italic-webfont.eot');
+	src: url('/resource/fonts/th_krub_italic-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('/resource/fonts/th_krub_italic-webfont.woff') format('woff'),
+		 url('/resource/fonts/th_krub_italic-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'THKrub';
+	src: url('/resource/fonts/th_krub-webfont.eot');
+	src: url('/resource/fonts/th_krub-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('/resource/fonts/th_krub-webfont.woff') format('woff'),
+		 url('/resource/fonts/th_krub-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+/* THSarabunNew */
+@font-face {
+	font-family: 'THSarabunNew';
+	src: url('/resource/fonts/thsarabunnew-webfont.eot');
+	src: url('/resource/fonts/thsarabunnew-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('/resource/fonts/thsarabunnew-webfont.woff') format('woff'),
+		 url('/resource/fonts/thsarabunnew-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'THSarabunNew';
+	src: url('/resource/fonts/thsarabunnew_bolditalic-webfont.eot');
+	src: url('/resource/fonts/thsarabunnew_bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('/resource/fonts/thsarabunnew_bolditalic-webfont.woff') format('woff'),
+		 url('/resource/fonts/thsarabunnew_bolditalic-webfont.ttf') format('truetype');
+	font-weight: bold;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'THSarabunNew';
+	src: url('/resource/fonts/thsarabunnew_italic-webfont.eot');
+	src: url('/resource/fonts/thsarabunnew_italic-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('/resource/fonts/thsarabunnew_italic-webfont.woff') format('woff'),
+		 url('/resource/fonts/thsarabunnew_italic-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'THSarabunNew';
+	src: url('/resource/fonts/thsarabunnew_bold-webfont.eot');
+	src: url('/resource/fonts/thsarabunnew_bold-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('/resource/fonts/thsarabunnew_bold-webfont.woff') format('woff'),
+		 url('/resource/fonts/thsarabunnew_bold-webfont.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}

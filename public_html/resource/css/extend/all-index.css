@@ -1,0 +1,33 @@
+html body main div.container input[type="checkbox"] { display: none; }
+html body main div.container ul {
+    height: 0px;
+    list-style-type: disclosure-closed;
+    overflow-y: hidden; transition: var(--time-tst-fast) ease;
+}
+html body main div.container ul li[class^="d"] { list-style-type: none; }
+html body main div.container ul li.dl {
+    width: 0%; height: 20px;
+    background-image: linear-gradient(to bottom, transparent 0%, transparent 47.5%, var(--fade-black-7) 47.5%, var(--fade-black-7) 52.5%, transparent 52.5%, transparent 100%);
+    transition: var(--time-tst-fast) ease;
+}
+html body main div.container label {
+    padding: 2.5px 5px;
+    width: var(--w); height: 30px; line-height: 30px;
+    border-radius: 7.5px; border-bottom: none;
+    /* backdrop-filter: opacity(1); */
+    appearance: auto; cursor: pointer;
+    transition: all var(--time-tst-fast), background-color var(--time-tst-xfast), border var(--time-tst-medium);
+}
+html body main div.container label:before { content: "Expand"; display: none; }
+html body main div.container label:hover { background-color: var(--clr-pp-blue-50); }
+html body main div.container input[type="checkbox"]:checked + label {
+    width: calc(100% - 10px);
+    border-radius: 7.5px 7.5px 0px 0px; border-bottom: 1px solid var(--clr-gg-grey-500);
+}
+html body main div.container input[type="checkbox"]:checked + label:before { content: "Collapse"; }
+html body main div.container input[type="checkbox"]:checked + label + ul { height: var(--h); }
+html body main div.container input[type="checkbox"]:checked + label + ul li.dl { width: 100%; }
+@media (max-width: 768px) {
+    html body main div.container label { height: 20px; line-height: 20px; }
+    html body main div.container ul li.dl { height: 12.5px; }
+}

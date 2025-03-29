@@ -1,0 +1,14 @@
+{
+	"languages": ["EN", "TH"],
+	"translations": [
+		{
+			"$": "main .ref-00001",
+			"EN": "Welcome ",
+			"TH": "ยินดีต้อนรับ"
+		}, {
+			"$": "main .ref-00002",
+			"EN": "to project B.D.F.S (Barter-Deposit-Found-Share)",
+			"TH": "เข้าสู่โปรเจค B.D.F.S (ฝาก-แลก-แจก-คืน)"
+		}
+	]
+}

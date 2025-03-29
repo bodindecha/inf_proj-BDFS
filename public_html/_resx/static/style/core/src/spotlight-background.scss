@@ -1,0 +1,87 @@
+$baseURL: "/";
+
+app[name=main] .bg-spotlight {
+	$bgFolder: "#{$baseURL}_resx/upload/img/bg/home/";
+
+	background-blend-mode: overlay;
+	background-size: cover;
+	transition: all var(--time-tst-fast) ease-out, background-color var(--time-tst-slow), background-image var(--time-tst-slow);
+
+	$spotlights:
+		var(--fade-white-2)	"BD-spotlight-001.jpg" center center,
+		#FFFFFFED			"BD-spotlight-002.jpg" center center,
+		var(--fade-white-2)	"BD-spotlight-003.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-004.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-005.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-006.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-007.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-008.jpg" center center,
+		#FFFFFFAD			"BD-spotlight-009.jpg" center center,
+		#FFFFFFAD			"BD-spotlight-010.jpg" center center,
+		var(--fade-white-2)	"BD-spotlight-011.jpg" center center,
+		var(--fade-white-2)	"BD-spotlight-012.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-013.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-014.jpg" center right,
+		var(--fade-white-2)	"BD-spotlight-015.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-016.jpg" top center,
+		var(--fade-white-2)	"BD-spotlight-017.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-018.jpg" top center,
+		var(--fade-white-3)	"BD-spotlight-019.jpg" 35% center,
+		var(--fade-white-3)	"BD-spotlight-020.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-021.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-022.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-023.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-024.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-025.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-026.jpg" center center,
+		var(--fade-white-2)	"BD-spotlight-027.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-028.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-029.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-030.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-031.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-032.jpg" center center,
+		var(--fade-white-2)	"BD-spotlight-033.jpg" center center,
+		#FFFFFFCD			"BD-spotlight-034.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-035.jpg" center center,
+		#FFFFFFCD			"BD-spotlight-036.jpg" center center,
+		var(--fade-white-2)	"BD-spotlight-037.jpg" center center,
+		#FFFFFFCD			"BD-spotlight-038.jpg" 60% center,
+		var(--fade-white-3)	"BD-spotlight-039.jpg" center center,
+		var(--fade-white-2)	"BD-spotlight-040.jpg" center center,
+		#FFFFFFCD			"BD-spotlight-041.jpg" center center,
+		#FFFFFFCD			"BD-spotlight-042.jpg" center center,
+		var(--fade-white-2)	"BD-spotlight-043.jpg" 65% center,
+		#FFFFFFDF			"BD-spotlight-044.jpg" center center,
+		var(--fade-white-2)	"BD-spotlight-045.jpg" center center,
+		var(--fade-white-2)	"BD-spotlight-046.jpg" center center,
+		#FFFFFFDF			"BD-spotlight-047.jpg" center center,
+		var(--fade-white-2)	"BD-spotlight-048.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-049.jpg" 35% center,
+		var(--fade-white-3)	"BD-spotlight-050.jpg" center 75%,
+		var(--fade-white-3)	"BD-spotlight-051.jpg" 75% center,
+		var(--fade-white-3)	"BD-spotlight-052.jpg" center center,
+		var(--fade-white-2)	"BD-spotlight-053.jpg" center center,
+		#FFFFFFCD			"BD-spotlight-054.jpg" center center,
+		var(--fade-white-3)	"BD-spotlight-055.jpg" bottom center,
+		var(--fade-white-3)	"BD-spotlight-056.jpg" center center,
+		#FFFFFFCD			"BD-spotlight-057.jpg" center left;
+	@function str-pad($number, $length, $char: "0", $toLeft: true) {
+		@if type-of($number) != "string" { $number: #{$number}; }
+		$currentLength: str-length($number);
+		@if $currentLength < $length { @for $add from $currentLength to $length {
+			@if $toLeft { $number: $char + $number; }
+			@else { $number: $number + $char; }
+		} } @return $number;
+	} $seq: 1;
+	@each $bgCol, $bgFile, $bgPosY, $bgPosX in $spotlights {
+		&.bg-spotlight-#{str-pad($seq, 3)} {
+			background-color: $bgCol !important;
+			background-image: url("#{$bgFolder}#{$bgFile}");
+			background-position-x: $bgPosX;
+			background-position-y: $bgPosY;
+		} $seq: $seq + 1;
+	}
+	@media only screen and (max-width: 768px) {
+		&.bg-spotlight-004 { background-position-y: top; }
+	}
+}

@@ -1,0 +1,46 @@
+{
+	"languages": ["EN", "TH"],
+	"translations": [
+		{
+			"$": "main h2:first-of-type",
+			"EN": "Record trash deposition",
+			"TH": "บันทึกการฝากขยะ"
+		}, {
+			"$": "main .message.form > .group:nth-of-type(1) label",
+			"EN": "Depositor A/C",
+			"TH": "บัญชีผู้ฝาก"
+		}, {
+			"$": "main .message.form fieldset legend",
+			"EN": "Amount of trash deposited",
+			"TH": "จำนวนขยะที่นำฝาก"
+		}, {
+			"$": "main .message.form fieldset .group:nth-of-type(1) label:nth-of-type(1)",
+			"EN": "Plastic",
+			"TH": "พลาสติก"
+		}, {
+			"$": "main .message.form fieldset .group:nth-of-type(2) label:nth-of-type(1)",
+			"EN": "Paper",
+			"TH": "กระดาษ"
+		}, {
+			"$": "main .message.form fieldset .group:nth-of-type(3) label:nth-of-type(1)",
+			"EN": "Metal",
+			"TH": "โลหะ"
+		}, {
+			"$": "main .message.form fieldset .group label:nth-of-type(2)",
+			"EN": "piece(s)",
+			"TH": "ชิ้น"
+		}, {
+			"$": "main .message.form > .group:nth-of-type(2) label",
+			"EN": "Banker",
+			"TH": "ผู้บันทึก"
+		}, {
+			"$": "main .message.form button.red",
+			"EN": "Clear",
+			"TH": "ลบฟอร์ม"
+		}, {
+			"$": "main .message.form button.green",
+			"EN": "Record deposition",
+			"TH": "บันทึกรายการ"
+		}
+	]
+}

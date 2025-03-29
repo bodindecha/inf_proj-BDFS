@@ -1,0 +1,46 @@
+{
+	"languages": ["EN", "TH"],
+	"translations": [
+		{
+			"$": "main h2:first-of-type",
+			"EN": "Manage bankers",
+			"TH": "จัดการนายธนาคาร"
+		}, {
+			"$": "main details.card summary",
+			"EN": "Add banker",
+			"TH": "เพิ่มนายธนาคาร"
+		}, {
+			"$": "main .add-staff button.blue",
+			"EN": "Select account",
+			"TH": "เลือกบัญชีผู้ใช้งาน"
+		}, {
+			"$": "main .add-staff button.purple",
+			"EN": "Grant access",
+			"TH": "เพิ่มสิทธิ์"
+		}, {
+			"$": "main .add-staff fieldset legend",
+			"EN": "Account list (click to remove)",
+			"TH": "รายชื่อบัญชี (คลิกเพื่อนำออก)"
+		}, {
+			"$": "main .form input[name=filter]%placeholder",
+			"EN": "Filter...",
+			"TH": "ค้นหา..."
+		}, {
+			"$": "main .table thead tr:nth-child(1) th:nth-child(1)",
+			"EN": "No.",
+			"TH": "ลำดับ"
+		}, {
+			"$": "main .table thead tr:nth-child(1) th:nth-child(2)",
+			"EN": "Class",
+			"TH": "ชั้น"
+		}, {
+			"$": "main .table thead tr:nth-child(1) th:nth-child(3)",
+			"EN": "Name",
+			"TH": "ชื่อ"
+		}, {
+			"$": "main .table thead tr:nth-child(1) th:nth-child(4)",
+			"EN": "Enabled",
+			"TH": "เปิดสิทธิ์"
+		}
+	]
+}

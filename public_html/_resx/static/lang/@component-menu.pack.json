@@ -1,0 +1,16 @@
+{
+	"languages": ["EN", "TH"],
+	"messages": {
+		"perm-incomplete": {
+			"EN": "Insufficient permission obtained",
+			"TH": "ข้อมูลสิทธิ์ไม่เพียงพอ"
+		}
+	},
+	"translations": [
+		{
+			"$": "main .ref-99999",
+			"EN": "text",
+			"TH": "ข้อความ"
+		}
+	]
+}

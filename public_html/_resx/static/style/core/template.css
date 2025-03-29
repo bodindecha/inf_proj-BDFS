@@ -1,0 +1,20 @@
+/* Page Template */
+app[name=main] > main > iframe {
+	width: 100%; height: calc(var(--window-height) - var(--top-height));
+	border: none;
+}
+app[name=main].embedded main > iframe { height: var(--window-height); }
+app[name=main] > main > .container {
+	margin: 0 auto; padding: 30px 10px 20px;
+	max-width: calc(100% - 50px);
+	overflow: visible;
+}
+@media (max-width: 576px) { app[name=main] > main > .container { width: 100%; } }
+@media (min-width: 576px) { app[name=main] > main > .container { width: 540px; } }
+@media (min-width: 768px) { app[name=main] > main > .container { width: 720px; } }
+@media (min-width: 992px) { app[name=main] > main > .container { width: 960px; } }
+@media (min-width: 1200px) { app[name=main] > main > .container { width: 1140px; } }
+@media (min-width: 1400px) { app[name=main] > main > .container { width: 1320px; } }
+app[name=main] > main > .container > h2:first-of-type { font-size: 2em; font-weight: 500; line-height: 1em; }
+app[name=main] > main > .container:empty { display: none; }
+app[name=main] > main .container > *:not(:last-child) { margin: 0 0 10px; }

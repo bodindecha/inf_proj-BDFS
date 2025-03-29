@@ -1,0 +1,29 @@
+User-agent: baiduspider
+Disallow: 
+User-agent: Bing
+Disallow: 
+User-agent: Clarity-Bot
+Disallow: 
+User-agent: facebookexternalhit
+Disallow: 
+User-agent: Gigabot
+Disallow: 
+User-agent: Googlebot
+Disallow: 
+User-agent: ia_archiver
+Disallow: 
+User-agent: line-poker
+Disallow: 
+User-agent: MSNBot
+Disallow: 
+User-agent: naverbot
+Disallow: 
+User-agent: Slurp
+Disallow: 
+User-agent: Teoma
+Disallow: 
+User-agent: yeti
+Disallow: 
+User-agent: *
+Disallow: /
+Crawl-delay: 10

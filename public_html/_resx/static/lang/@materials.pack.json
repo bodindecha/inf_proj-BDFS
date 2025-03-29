@@ -1,0 +1,70 @@
+{
+	"languages": ["EN", "TH"],
+	"translations": [
+		{
+			"$": ".context-menu .link li[data-action=open-URL-new-tab] span",
+			"EN": "Open link in new tab",
+			"TH": "เปิดลิงก์ในแท็บใหม่"
+		}, {
+			"$": ".context-menu .link li[data-action=copy-URL-address] span",
+			"EN": "Copy link address",
+			"TH": "คัดลอกที่อยู่ลิงก์"
+		}, {
+			"$": ".context-menu .nav li[data-action=back] span",
+			"EN": "Back",
+			"TH": "กลับ"
+		}, {
+			"$": ".context-menu .nav li[data-action=reload] span",
+			"EN": "Reload page",
+			"TH": "โหลดซ้ำ"
+		}, {
+			"$": ".context-menu .nav li[data-action=reload-frame] span",
+			"EN": "Reload frame",
+			"TH": "โหลดเฟรมซ้ำ"
+		}, {
+			"$": ".context-menu .nav li[data-action=next] span",
+			"EN": "Forward",
+			"TH": "ส่งต่อ"
+		}, {
+			"$": ".context-menu .content li[data-action=record-undo] span",
+			"EN": "Undo",
+			"TH": "เลิกทำ"
+		}, {
+			"$": ".context-menu .content li[data-action=record-redo] span",
+			"EN": "redo",
+			"TH": "ทำซ้ำ"
+		}, {
+			"$": ".context-menu .content li[data-action=content-cut] span",
+			"EN": "Cut",
+			"TH": "ตัด"
+		}, {
+			"$": ".context-menu .content li[data-action=content-copy] span",
+			"EN": "Copy",
+			"TH": "คัดลอก"
+		}, {
+			"$": ".context-menu .content li[data-action=content-clear] span",
+			"EN": "Delete",
+			"TH": "ลบทิ้ง"
+		}, {
+			"$": ".context-menu .content li[data-action=content-paste] span",
+			"EN": "Paste",
+			"TH": "วาง"
+		}, {
+			"$": ".context-menu .content li[data-action=select-all] span",
+			"EN": "Select all",
+			"TH": "เลือกทั้งหมด"
+		}, {
+			"$": ".context-menu .action li[data-action=print] span",
+			"EN": "Print page",
+			"TH": "พิมพ์หน้านี้"
+		}, {
+			"$": ".context-menu .social li[data-action=share] span",
+			"EN": "Share this page",
+			"TH": "แชร์หน้านี้"
+		}, {
+			"$": ".context-menu .social li[data-action=copyurl] span",
+			"EN": "Copy page URL",
+			"TH": "คัดลอกลิงก์หน้านี้"
+		}
+	]
+}

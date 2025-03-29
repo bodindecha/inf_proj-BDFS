@@ -1,0 +1,141 @@
+/* Jokerman */
+@font-face {
+	font-family: "Jokerman";
+	src: url("https://cdn.TianTcl.net/static/font/inter/Jokerman.woff") format("woff"),
+		url("https://cdn.TianTcl.net/static/font/inter/Jokerman.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+/* Minecraft Ten (v2) */
+@font-face {
+	font-family: "Minecraft Ten";
+	src: url("https://cdn.TianTcl.net/static/font/inter/Minecraft_Ten-v2.woff") format("woff"),
+		url("https://cdn.TianTcl.net/static/font/inter/Minecraft_Ten-v2.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+/* Orange Juice (v2) */
+@font-face {
+	font-family: "Orange Juice";
+	src: url("https://cdn.TianTcl.net/static/font/inter/Orange_Juice-v2.woff") format("woff"),
+		url("https://cdn.TianTcl.net/static/font/inter/Orange_Juice-v2.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+/* Pixelmix */
+@font-face {
+	font-family: "Pixelmix";
+	src: url("https://cdn.TianTcl.net/static/font/inter/Pixelmix.woff") format("woff"),
+		url("https://cdn.TianTcl.net/static/font/inter/Pixelmix.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Pixelmix";
+	src: url("https://cdn.TianTcl.net/static/font/inter/Pixelmix-bold.woff") format("woff"),
+		url("https://cdn.TianTcl.net/static/font/inter/Pixelmix-bold.ttf") format("truetype");
+	font-weight: bold;
+	font-style: normal;
+}
+/* TH Kodchasal */
+@font-face {
+	font-family: "TH Kodchasal";
+	src: url("https://cdn.TianTcl.net/static/font/inter/TH_Kodchasal.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "TH Kodchasal";
+	src: url("https://cdn.TianTcl.net/static/font/inter/TH_Kodchasal-bold.woff") format("woff");
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: "TH Kodchasal";
+	src: url("https://cdn.TianTcl.net/static/font/inter/TH_Kodchasal-italic.woff") format("woff");
+	font-weight: normal;
+	font-style: italic;
+}
+@font-face {
+	font-family: "TH Kodchasal";
+	src: url("https://cdn.TianTcl.net/static/font/inter/TH_Kodchasal-bold_italic.woff") format("woff");
+	font-weight: bold;
+	font-style: italic;
+}
+/* TH Krub */
+@font-face {
+	font-family: "TH Krub";
+	src: url("https://cdn.TianTcl.net/static/font/inter/TH_Krub.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "TH Krub";
+	src: url("https://cdn.TianTcl.net/static/font/inter/TH_Krub-bold.woff") format("woff");
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: "TH Krub";
+	src: url("https://cdn.TianTcl.net/static/font/inter/TH_Krub-italic.woff") format("woff");
+	font-weight: normal;
+	font-style: italic;
+}
+@font-face {
+	font-family: "TH Krub";
+	src: url("https://cdn.TianTcl.net/static/font/inter/TH_Krub-bold_italic.woff") format("woff");
+	font-weight: bold;
+	font-style: italic;
+}
+/* TH Sarabun New */
+@font-face {
+	font-family: "TH Sarabun New";
+	src: url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_New.woff") format("woff"),
+		url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_New.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "TH Sarabun New";
+	src: url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_New-bold.woff") format("woff"),
+		url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_New-bold.ttf") format("truetype");
+	font-weight: bold;
+	font-style: normal;
+}
+/* TH Sarabun PSK */
+@font-face {
+	font-family: "TH Sarabun PSK";
+	src: url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_PSK.eot"),
+		url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_PSK.woff") format("woff"),
+		url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_PSK.woff2") format("woff2"),
+		url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_PSK.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "TH Sarabun PSK";
+	src: url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_PSK-bold.eot"),
+		url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_PSK-bold.woff") format("woff"),
+		url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_PSK-bold.woff2") format("woff2"),
+		url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_PSK-bold.ttf") format("truetype");
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: "TH Sarabun PSK";
+	src: url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_PSK-italic.eot"),
+		url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_PSK-italic.woff") format("woff"),
+		url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_PSK-italic.woff2") format("woff2"),
+		url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_PSK-italic.ttf") format("truetype");
+	font-weight: normal;
+	font-style: italic;
+}
+@font-face {
+	font-family: "TH Sarabun PSK";
+	src: url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_PSK-bold_italic.eot"),
+		url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_PSK-bold_italic.woff") format("woff"),
+		url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_PSK-bold_italic.woff2") format("woff2"),
+		url("https://cdn.TianTcl.net/static/font/inter/TH_Sarabun_PSK-bold_italic.ttf") format("truetype");
+	font-weight: bold;
+	font-style: italic;
+}

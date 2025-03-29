@@ -1,0 +1,128 @@
+# ~~~~~~~~~~ Domain's Setup ~~~~~~~~~~
+
+### Initial values
+# AllowOverride All
+DefaultLanguage en-US
+AddDefaultCharset UTF-8
+SetEnv SERVER_ADMIN TianTcl@bodin.ac.th
+LimitRequestBody 102400000
+# CheckSpelling On
+# php_value post_max_size 100M
+# php_value upload_max_filesize 100M
+Header set Content-Disposition inline
+
+# ~~~~~~~~~~ Access control ~~~~~~~~~~
+
+### Handling aliases & internal domains
+# Header set Access-Control-Allow-Origin "*"
+
+### Hidden files
+# Hide .files _files.file
+# <FilesMatch "^(\.|_[A-Z0-9a-z\-_.]+\.[0-9a-z]+)$">
+# 	Order allow,deny
+# 	Deny from all
+# </FilesMatch>
+
+### Password protect site mode
+# AuthType basic
+# AuthName "This site is currently under maintenance"
+# AuthUserFile /_resx/service/dev/.htpasswd
+# Require TianTcl
+
+# ~~~~~~~~~~ URL edit ~~~~~~~~~~
+
+RewriteEngine On
+RewriteBase /
+
+### Block bots
+RewriteCond %{HTTP_USER_AGENT} ^(Anarchie|ASPSeek|attach|autoemailspider|Xaldon\ WebSpider|Xenu|Zeus(.*Webster)?)
+RewriteRule ^.* - [F,L]
+
+##### App URLs #####
+### Account
+RewriteRule ^user/(\d{5}|[A-Z0-9a-z._]{3,30})$ account/view-profile?of=$1 [L,QSA]
+RewriteRule ^user/(\d{5}|[A-Z0-9a-z._]{3,30})/edit$ account/edit-info?of=$1 [L,QSA]
+RewriteRule ^user/(\d{5}|[A-Z0-9a-z._]{3,30})/avatar$ account/profile-picture?of=$1 [L,QSA]
+### Projects
+# B.D.F.S
+RewriteRule ^project/BDFS/LnF/item/(\d{5})/$ /project/BDFS/LnF/item?view_id=$1 [L,QSA]
+RewriteRule ^project/BDFS/LnF/item/(\d{5})/edit$ /project/BDFS/LnF/edit?id=$1 [L,QSA]
+RewriteRule ^project/BDFS/LnF/list/(lost|found)$ /project/BDFS/LnF/list?type=$1 [L,QSA]
+
+
+### App's default
+# Redirect 301 ^(.*)/index $1/
+Redirect 301 /index /
+RewriteRule ^favicon.ico /_resx/upload/img/brand/favicon.ico [L,QSA]
+RewriteRule ^robots.txt /_resx/static/config/robots.txt [L,QSA]
+RewriteRule ^error/(\d{3,4})$ /error?code=$1 [L,QSA]
+# RewriteRule ^(\$_|_(\$|resource)?|res(x|ource))/(.+)$ /_resx/$4 [L,QSA] # _|resx|resource|_resource|_$|$_
+RewriteCond %{HTTP_USER_AGENT} (Safari){0} [NC]
+RewriteRule ^(.+\.(png|jpg|jpeg|gif|heic|heif))$ /_resx/service/view/image?path=$1 [L,QSA]
+RewriteCond %{HTTP_USER_AGENT} (Safari){0} [NC]
+RewriteRule ^(.+\.(png|jpg|jpeg|gif|heic|heif)\?.+)$ /error/902 [L,QSA]
+
+# ~~~~~~~~~~ Systematics ~~~~~~~~~~
+
+### No file slashs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+### No extensions
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+
+### Redirect url that contains extensions to default
+RewriteCond %{THE_REQUEST} "^[^ ]* .*?\.php[? ].*$"
+RewriteRule .* - [L,R=404]
+
+### Execute files in other types
+# AddType application/x-httpd-php .aspx
+# AddType application/x-httpd-php .xml
+AddType text/css .scss
+
+### Add MIME Types
+AddType application/pdf .pdf
+AddType application/x-shockwave-flash .swf
+AddType application/x-tar .tar
+AddType application/zip .zip
+AddType image/gif .gif
+AddType image/jpeg .jpeg .jpg .jpe
+AddType image/png .png
+AddType image/svg+xml .svg
+AddType image/vnd.microsoft.icon .ico
+AddType audio/x-wav .wav
+AddType audio/x-midi .mid .midi
+AddType video/mpeg .mpeg .mpg .mpe
+AddType video/quicktime .qt .mov
+AddType video/x-msvideo .avi
+AddType video/x-sgi-movie .movie
+
+# ~~~~~~~~~~ Default documents ~~~~~~~~~~
+
+### Server error page
+ErrorDocument 400 /error/400
+ErrorDocument 401 /error/401
+ErrorDocument 402 /error/402
+ErrorDocument 403 /error/403
+ErrorDocument 404 /error/404
+ErrorDocument 405 /error/405
+ErrorDocument 406 /error/406
+ErrorDocument 407 /error/407
+ErrorDocument 408 /error/408
+ErrorDocument 409 /error/409
+ErrorDocument 410 /error/410
+ErrorDocument 411 /error/411
+ErrorDocument 412 /error/412
+ErrorDocument 413 /error/413
+ErrorDocument 414 /error/414
+ErrorDocument 415 /error/415
+ErrorDocument 416 /error/416
+ErrorDocument 417 /error/417
+ErrorDocument 500 /error/500
+ErrorDocument 501 /error/501
+ErrorDocument 502 /error/502
+ErrorDocument 503 /error/503
+ErrorDocument 504 /error/504
+ErrorDocument 505 /error/505

@@ -1,0 +1,361 @@
+{
+	"manifest": {
+		"reference": "refM03",
+		"version": "1.0.1",
+		"updates": [
+			{"name": "1.0.0", "time": "2023-12-26 02:32", "note": "Initial"},
+			{"name": "1.0.1", "time": "2024-06-26 07:26", "note": "Add menu"}
+		],
+		"permissionField": ["requireType", "modBDFS", "modUAC"],
+		"basePath": "project/BDFS/"
+	},
+	"menu": [
+		{
+			"reference": "refM03-001",
+			"permission": {},
+			"settings": {
+				"expandable": true,
+				"pre-expand": true
+			},
+			"card": {
+				"icon": {
+					"type": "icon",
+					"style": "material-symbols-rounded",
+					"name": "recycling"
+				},
+				"heading": {
+					"EN": "Recycle Trash Bank",
+					"TH": "ธนาคารขยะรีไซเคิล"
+				},
+				"description": {
+					"EN": "",
+					"TH": ""
+				}
+			},
+			"items": [
+				{
+					"reference": "refM03-001-01",
+					"type": "page-link",
+					"icon": {
+						"type": "icon",
+						"style": "material-symbols-rounded",
+						"name": "savings"
+					},
+					"text": {
+						"EN": "My account book",
+						"TH": "สมุดบัญชีของฉัน"
+					},
+					"link": "trash-bank/my",
+					"settings": {},
+					"permission": {}
+				}, {
+					"type": "separator",
+					"permission": {
+						"modBDFS": null
+					}
+				}, {
+					"type": "group-title",
+					"text": {
+						"EN": "For bankers",
+						"TH": "สำหรับนายธนาคาร"
+					},
+					"permission": {
+						"modBDFS": null
+					}
+				}, {
+					"reference": "refM03-001-02",
+					"type": "page-link",
+					"icon": {
+						"type": "icon",
+						"style": "material-symbols-rounded",
+						"name": "receipt_long"
+					},
+					"text": {
+						"EN": "Record trash deposition",
+						"TH": "บันทึกการฝากขยะ"
+					},
+					"link": "trash-bank/deposit",
+					"settings": {},
+					"permission": {
+						"modBDFS": null
+					}
+				}, {
+					"reference": "refM03-001-03",
+					"type": "page-link",
+					"icon": {
+						"type": "icon",
+						"style": "material-symbols-rounded",
+						"name": "export_notes"
+					},
+					"text": {
+						"EN": "Record trash withdrawal",
+						"TH": "ถอนขยะเป็นลายเซ็น"
+					},
+					"link": "trash-bank/moderate/withdraw",
+					"settings": {},
+					"permission": {
+						"requireType": "T",
+						"modBDFS": true
+					}
+				}, {
+					"reference": "refM03-001-04",
+					"type": "page-link",
+					"icon": {
+						"type": "icon",
+						"style": "material-symbols-rounded",
+						"name": "restore_from_trash"
+					},
+					"text": {
+						"EN": "Record empty trash",
+						"TH": "ถอนขยะ (นำจำหน่าย)"
+					},
+					"link": "trash-bank/moderate/clear-bank",
+					"settings": {
+						"enabled": false
+					},
+					"permission": {
+						"requireType": "T",
+						"modBDFS": true
+					}
+				}, {
+					"type": "separator",
+					"permission": {
+						"modBDFS": null
+					}
+				}, {
+					"reference": "refM03-001-05",
+					"type": "page-link",
+					"icon": {
+						"type": "icon",
+						"style": "material-symbols-rounded",
+						"name": "view_list"
+					},
+					"text": {
+						"EN": "Check account's statement",
+						"TH": "เปิดดู statement บัญชี"
+					},
+					"link": "trash-bank/statement",
+					"settings": {},
+					"permission": {
+						"modBDFS": null
+					}
+				}, {
+					"reference": "refM03-001-06",
+					"type": "page-link",
+					"icon": {
+						"type": "icon",
+						"style": "material-symbols-rounded",
+						"name": "account_balance"
+					},
+					"text": {
+						"EN": "All transaction records",
+						"TH": "รายการฝาก/ถอนขยะทั้งหมด"
+					},
+					"link": "trash-bank/moderate/transactions",
+					"settings": {},
+					"permission": {
+						"requireType": "T",
+						"modBDFS": true
+					}
+				}, {
+					"reference": "refM03-001-10",
+					"type": "page-link",
+					"icon": {
+						"type": "icon",
+						"style": "material-symbols-rounded",
+						"name": "account_balance_wallet"
+					},
+					"text": {
+						"EN": "Accumulated deposit amount",
+						"TH": "ยอดฝากสะสม"
+					},
+					"link": "trash-bank/moderate/accumulated-depository",
+					"settings": {},
+					"permission": {
+						"requireType": "T",
+						"modBDFS": true
+					}
+				}, {
+					"reference": "refM03-001-07",
+					"type": "page-link",
+					"icon": {
+						"type": "icon",
+						"style": "material-symbols-rounded",
+						"name": "finance"
+					},
+					"text": {
+						"EN": "Summary: Trash volume",
+						"TH": "สรุปยอดปริมาณขยะ"
+					},
+					"link": "trash-bank/moderate/storage",
+					"settings": {},
+					"permission": {
+						"requireType": "T",
+						"modBDFS": true
+					}
+				}, {
+					"type": "separator",
+					"permission": {
+						"requireType": "T",
+						"modBDFS": true
+					}
+				}, {
+					"reference": "refM03-001-08",
+					"type": "page-link",
+					"icon": {
+						"type": "icon",
+						"style": "material-symbols-rounded",
+						"name": "supervisor_account"
+					},
+					"text": {
+						"EN": "Manage staffs",
+						"TH": "จัดการนายธนาคาร"
+					},
+					"link": "trash-bank/moderate/manage-staff",
+					"settings": {},
+					"permission": {
+						"requireType": "T",
+						"modBDFS": true
+					}
+				}, {
+					"reference": "refM03-001-09",
+					"type": "page-link",
+					"icon": {
+						"type": "icon",
+						"style": "material-symbols-rounded",
+						"name": "group_add"
+					},
+					"text": {
+						"EN": "Open acccount for new members",
+						"TH": "เปิดบัญชีให้ผู้อื่น"
+					},
+					"link": "trash-bank/moderate/open-account",
+					"settings": {},
+					"permission": {
+						"requireType": "T",
+						"modBDFS": true
+					}
+				}
+			]
+		}, {
+			"reference": "refM03-002",
+			"permission": {},
+			"settings": {
+				"expandable": false,
+				"enabled": false
+			},
+			"card": {
+				"icon": {
+					"type": "icon",
+					"style": "material-symbols-rounded",
+					"name": "volunteer_activism"
+				},
+				"heading": {
+					"EN": "Seniors' for Freshmens",
+					"TH": "ของพี่ให้น้อง"
+				},
+				"description": {
+					"EN": "",
+					"TH": ""
+				},
+				"link": "P-2-N/"
+			},
+			"items": []
+		}, {
+			"reference": "refM03-003",
+			"permission": {},
+			"settings": {
+				"expandable": true
+			},
+			"card": {
+				"icon": {
+					"type": "icon",
+					"style": "material-symbols-rounded",
+					"name": "checked_bag_question"
+				},
+				"heading": {
+					"EN": "Lost n' Found",
+					"TH": "ของหายได้คืน"
+				},
+				"description": {
+					"EN": "",
+					"TH": ""
+				}
+			},
+			"items": [
+				{
+					"reference": "refM03-003-01",
+					"type": "page-link",
+					"icon": {
+						"type": "icon",
+						"style": "material-symbols-rounded",
+						"name": "add_box"
+					},
+					"text": {
+						"EN": "Create post",
+						"TH": "สร้างประกาศ"
+					},
+					"link": "LnF/post",
+					"settings": {},
+					"permission": {}
+				}, {
+					"type": "separator"
+				}, {
+					"reference": "refM03-003-02",
+					"type": "page-link",
+					"icon": {
+						"type": "icon",
+						"style": "material-symbols-rounded",
+						"name": "not_listed_location"
+					},
+					"text": {
+						"EN": "Lost item list",
+						"TH": "รายการของหาย"
+					},
+					"link": "LnF/list/lost",
+					"settings": {},
+					"permission": {}
+				}, {
+					"reference": "refM03-003-03",
+					"type": "page-link",
+					"icon": {
+						"type": "icon",
+						"style": "material-symbols-rounded",
+						"name": "pin_drop"
+					},
+					"text": {
+						"EN": "Found item list",
+						"TH": "รายการของที่พบ"
+					},
+					"link": "LnF/list/found",
+					"settings": {},
+					"permission": {}
+				}
+			]
+		}, {
+			"reference": "refM03-004",
+			"permission": {},
+			"settings": {
+				"expandable": false,
+				"enabled": false
+			},
+			"card": {
+				"icon": {
+					"type": "icon",
+					"style": "far",
+					"name": "house-chimney-heart"
+				},
+				"heading": {
+					"EN": "Punsuke Village",
+					"TH": "หมู่บ้านปันสุข"
+				},
+				"description": {
+					"EN": "",
+					"TH": ""
+				},
+				"link": "punsuke-village/"
+			},
+			"items": []
+		}
+	]
+}

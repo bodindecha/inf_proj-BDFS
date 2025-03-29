@@ -1,0 +1,8 @@
+<b>To open : </b>use <code lang="js" class="language-js">app.ui.lightbox.open(a,b);</code><br>
+&emsp;which contains the first parameter <code lang="js" class="language-js">a</code> as the position of the lightbox that can only be <code lang="js" class="language-js">"top"</code>, <code lang="js" class="language-js">"mid"</code> or <code lang="js" class="language-js">"btm"</code> (top middle bottom) & the second parameter <code lang="js" class="language-js">b</code> as a JS object <code lang="js" class="language-js">{}</code> which contains attributes as so<br>
+<code lang="js" class="language-js">
+    title: "Heading of the lightbox"<br>
+    allowclose: true|false /* true allows user to force close with an "⨯" at the top right corner of the lightbox and false don't */<br>autoclose: integer|decimal /* the lightbox will automatically close after the inputted second(s) has passed */<br>
+    html: 'HTML STRING' /* what will be shown in the content part of lightbox */</code><br>
+&emsp;Please note that all of these attributes are optional, but it's not a good idea to leave <code lang="js" class="language-js">html</code> as a blank attribute, and be careful if you're leaving the <code lang="js" class="language-js">allowclose</code> blank|false it may cause the lightbox to not being able to close until the page reloads so maybe you want to add the attribute <code lang="js" class="language-js">autoclose</code> for safety<br><br>
+<b>To close : </b>regularly users will be the ones to close it or the timeout set, but if you want it to be programmatically close, then use <code lang="js" class="language-js">app.ui.lightbox.close();</code>

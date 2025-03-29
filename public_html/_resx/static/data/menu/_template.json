@@ -1,0 +1,88 @@
+{
+	"manifest": {
+		"reference": "refM01",
+		"version": "1.0.0",
+		"updates": [
+			{"name": "1.0.0", "time": "2023-12-20 22:56", "note": "Initial"}
+		],
+		"permissionField": ["requireType", "isModerator", "isDeveloper", "modUAC", "modPBL", "modBDFS", "modURL", "modAPprog"],
+		"basePath": ""
+	},
+	"menu": [
+		{
+			"reference": "refM01-001",
+			"permission": {
+				"requireType": "S",
+				"isModerator": null,
+				"isDeveloper": null,
+				"whitelist": [],
+				"whitelistOnly": false,
+				"blacklist": [],
+				"modUAC": null,
+				"modPBL": null,
+				"modBDFS": null,
+				"modURL": null,
+				"modAPprog": null
+			},
+			"settings": {
+				"expandable": true,
+				"pre-expand": false,
+				"show": true,
+				"blur": false,
+				"enabled": true
+			},
+			"card": {
+				"icon": {
+					"type": "icon",
+					"style": "material-icons",
+					"name": ""
+				},
+				"heading": {
+					"EN": "",
+					"TH": ""
+				},
+				"description": {
+					"EN": "",
+					"TH": ""
+				},
+				"link": "",
+				"external": false
+			},
+			"items": [
+				{
+					"type": "group-title",
+					"text": {
+						"EN": "",
+						"TH": ""
+					}
+				}, {
+					"reference": "refM01-001-01",
+					"type": "page-link",
+					"text": {
+						"EN": "",
+						"TH": ""
+					},
+					"link": "",
+					"settings": {
+						"show": true,
+						"blur": false,
+						"enabled": true,
+						"external": false
+					},
+					"permission": {
+						"requireType": null,
+						"isModerator": null,
+						"isDeveloper": null,
+						"modUAC": null,
+						"modPBL": null,
+						"modBDFS": null,
+						"modURL": null,
+						"modAPprog": null
+					}
+				}, {
+					"type": "separator"
+				}
+			]
+		}
+	]
+}

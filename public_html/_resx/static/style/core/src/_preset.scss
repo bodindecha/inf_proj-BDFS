@@ -1,0 +1,26 @@
+$breakpoint-tablet: "only screen and (max-width: 768px)";
+$target-icon: ":where(i.material-icons, span.material-symbols-rounded, i.fa)";
+$target-a: "a";
+
+@mixin obj-invis {
+	opacity: 0; filter: opacity(0);
+	visibility: hidden;
+}
+@mixin obj-vis {
+	opacity: 1; filter: opacity(1);
+	visibility: visible;
+}
+@mixin no-size {
+	margin: 0; padding: 0;
+	width: 0; height: 0;
+	border: none;
+}
+@mixin selectable {
+	user-select: text; -webkit-user-select: text;
+}
+@mixin no-select {
+	user-select: none; -webkit-user-select: none;
+}
+@mixin no-drag {
+	touch-action: manipulation; -webkit-user-drag: none;
+}

@@ -1,0 +1,25 @@
+{
+	"languages": ["EN", "TH", "ZH", "FR", "DE", "JA", "KO"],
+	"messages": {
+		"ref_name": {
+			"EN": "Word",
+			"TH": "คำ",
+			"ZH": "字",
+			"FR": "Mot",
+			"DE": "Wort",
+			"JA": "言葉",
+			"KO": "단어"
+		}
+	},
+	"translations": [
+		{
+			"$": "main h2:first-of-type",
+			"EN": "Title",
+			"TH": "เรื่อง"
+		}, {
+			"$": "main selector2",
+			"EN": "text",
+			"TH": "ข้อความ"
+		}
+	]
+}

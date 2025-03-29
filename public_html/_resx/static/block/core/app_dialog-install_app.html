@@ -1,0 +1,10 @@
+<div class="install-app">
+	<table><tbody><tr>
+		<td><img src="/_resx/upload/img/brand/logo/color.png" width="75" height="75" style="object-fit: contain;" alt="App logo" draggable="false"></td>
+		<td class="app-name center"><h2><script>$("app[name=main] > .lightbox .app-name h2").text(AppConfig.name)</script></h2></td>
+	</tr></tbody></table>
+	<div style="display: flex; justify-content: space-evenly; margin-bottom: 10px;">
+		<button class="red hollow small pill ripple-click" onClick="app._oneTime.installPWA(false)">No, thanks</button>
+		<button class="green small pill ripple-click" onClick="app._oneTime.installPWA(true)">Yes, Install</button>
+	</div>
+</div>

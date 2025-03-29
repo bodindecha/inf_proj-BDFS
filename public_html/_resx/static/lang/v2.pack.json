@@ -1,0 +1,34 @@
+{
+	"languages": ["EN", "TH"],
+	"translations": [
+		{
+			"$": "main .ref-00001",
+			"EN": "Welcome ",
+			"TH": "ยินดีต้อนรับ"
+		}, {
+			"$": "main .ref-00002",
+			"EN": "to the information system of Bodindecha (Sing Singhaseni) School",
+			"TH": "เข้าสู่ระบบสารสนเทศโรงเรียนบดินทรเดชา (สิงห์ สิงหเสนี)"
+		}, {
+			"$": "main .ref-00003",
+			"EN": "Currently, the ongoing semester in the system is",
+			"TH": "ขณะนี้ ภาคเรียนปัจจุบันในระบบคือ"
+		}, {
+			"$": "main .ref-00004",
+			"EN": "semester",
+			"TH": "ภาคเรียนที่"
+		}, {
+			"$": "main .ref-00005",
+			"EN": ", academic year",
+			"TH": " ปีการศึกษา"
+		}, {
+			"$": "main .ref-00006",
+			"EN": "Press the",
+			"TH": "กดปุ่ม"
+		}, {
+			"$": "main .ref-00007",
+			"EN": "button to expand the menu list in the category",
+			"TH": "เพื่อขยายดูรายการเมนูในหมวดหมู่"
+		}
+	]
+}

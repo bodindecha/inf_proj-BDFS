@@ -1,0 +1,88 @@
+/* App settings */
+body > header { /* Header (top tab) */
+	/* Background colors */
+	--sys-header-bg-1: #15499A;				/* Normal */
+	--sys-header-hov-1: var(--fade-white-8);	/* Hovered */
+	--sys-header-act-bg-1: var(--fade-white-7);	/* Current page */
+	/* Shadows */
+	--sys-header-shadow-1: var(--shd-tiny) #555;		/* On top */
+	--sys-header-shadow-2: var(--shd-big) #2020203F;	/* Scrolled */
+	/* Texts */
+	--sys-header-text-font: "THSarabunNew", "Sarabun", "Open Sans", sans-serif;
+	--sys-header-text-clr-1: var(--fade-white-2);				/* Normal */
+	--sys-header-text-clr-2: var(--clr-main-white-absolute);	/* Hovered */
+	--sys-header-text-clr-3: var(--clr-bs-yellow);				/* Active */
+	--sys-header-text-clr-4: var(--clr-pp-pink-a100);			/* Current page */
+	--sys-header-text-size-1: 17.5px;							/* Normal */
+	--sys-header-text-size-2: 17.5px;							/* Hovered */
+	--sys-header-text-size-3: 17.5px;							/* Active */
+	--sys-header-text-size-4: 17.5px;							/* Current page */
+	/* Icons */
+	--sys-header-icon-1: var(--clr-main-white-absolute);		/* Color */
+	/* Menu toggle button */
+	--sys-navtab-btn-bg-1: var(--clr-gg-grey-500);				/* Normal */
+	--sys-navtab-btn-bg-2: var(--clr-gg-grey-500);				/* Hovered */
+}
+body > aside.navigator_tab, body > main { /* Navigator (aside tab) */
+	/* Main CSS */
+	--sys-navtab-bg-1: var(--clr-main-white-absolute);						/* Normal background color */
+	--sys-navtab-bd-thick: 0.5px;											/* Border thickness */
+	--sys-navtab-bd: var(--sys-navtab-bd-thick) solid var(--fade-black-8);	/* Border */
+	/* Customized CSS */
+	font-size: 1em; font-family: "THSarabunNew", "Mali", "TianTcl-th_01";
+}
+body > main { /* Main (content section) */
+	--sys-main-bg-1: var(--clr-main-white-absolute);			/* Background color */
+}
+html body nav.rfr {
+	--sys-rfr-text-font: "THSarabunNew", "Sarabun", "Open Sans", sans-serif;
+}
+body > footer { /* Footer (bottom section) */
+	--sys-footer-bg-1: var(--clr-bs-light);						/* Background color */
+	--sys-footer-head-color: var(--clr-main-black-absolute);	/* Text color */
+	--sys-footer-icon-color: var(--clr-bs-indigo);				/* Icon color */
+	--sys-footer-icon-bs: var(--clr-gg-green-100);				/* Icon border color */
+}
+/* Free element */
+a {
+	--sys-link-clr-1: #0D6EFD;	/* link */
+	--sys-link-clr-2: #0D6EFD;	/* visited */
+	--sys-link-clr-3: #0D6EFD;	/* hover */
+	--sys-link-clr-4: #0A58CA;	/* active */
+	--sys-link-clr-5: #0A58CA;	/* focus */
+}
+@media only screen and (max-width: 768px) {
+	body > header { /* Header (top tab) */
+		/* Texts */
+		--sys-header-text-size-1: 12.5px;	/* Normal */
+		--sys-header-text-size-2: 12.5px;	/* Hovered */
+		--sys-header-text-size-3: 12.5px;	/* Active */
+		--sys-header-text-size-4: 12.5px;	/* Current page */
+	}
+}
+
+/* Page Template */
+html body main > iframe {
+	width: 100%; height: calc(var(--window-height) - var(--top-height));
+	border: none;
+}
+html body.nohbar main > iframe { height: var(--window-height); }
+html body main div.container {
+	padding: 30px 10px 20px;
+	position: relative; left: 50%; transform: translateX(-50%);
+	max-width: calc(100% - 50px);
+	font-size: 18.75px; font-family: "Sarabun", serif;
+	overflow-x: hidden;
+}
+@media (max-width: 576px) { main div.container { width: 100%; } }
+@media (min-width: 576px) { main div.container { width: 540px; } }
+@media (min-width: 768px) { main div.container { width: 720px; } }
+@media (min-width: 992px) { main div.container { width: 960px; } }
+@media (min-width: 1200px) { main div.container { width: 1140px; } }
+@media (min-width: 1400px) { main div.container { width: 1320px; } }
+html body main div.container > * { margin: 0px 0px 10px; }
+html body main div.container > h2 { font-weight: 500; }
+@media (max-width: 768px) {
+	html body main div.container { font-size: 12.5px; line-height: 18.75px; }
+	html body main div.container > h2 { font-size: 27.5px; line-height: 42.5px; }
+}
