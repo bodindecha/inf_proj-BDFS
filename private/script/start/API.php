@@ -59,14 +59,14 @@
 			unset(self::$return["messages"]);
 			if ($output <> null) self::$return["info"] = $output;
 		}
-		final public static function errorMessage(int|string $type, string $text=null): void {
+		final public static function errorMessage($type, string $text=null): void {
 			if (!self::$is["initialized"]) self::initialize();
 			array_push(
 				self::$return["messages"],
 				$text == null ? $type : array($type, $text)
 			);
 		}
-		final public static function infoMessage(int|string $type, string $text=null): void {
+		final public static function infoMessage($type, string $text=null): void {
 			if (!self::$is["initialized"]) self::initialize();
 			if (!isset(self::$return["messages"])) self::$return["messages"] = array();
 			array_push(
@@ -74,7 +74,7 @@
 				$text == null ? $type : array($type, $text)
 			);
 		}
-		final public static function sendOutput(bool $readable=false): void {
+		final public static function sendOutput(bool $readable=false): never {
 			if (!self::$is["initialized"]) self::initialize();
 			global $APP_DB;
 			$outputData = json_encode(self::$return, !$readable ? 0 : JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
@@ -86,7 +86,7 @@
 		}
 
 		// Utilities
-		final public static function requirePermission(string|array|null $scopes=null, bool $useAnd=true, bool $mods=true): bool {
+		final public static function requirePermission($scopes=null, bool $useAnd=true, bool $mods=true): bool {
 			if (hasPermission($scopes, $useAnd, mods: $mods)) return true;
 			self::$return["messages"] = array(
 				array(2, "You don't have permission to perform this action.")
