@@ -53,20 +53,20 @@
 		}
 
 		// Prototypes
-		final public static function successState(mixed $output=null): void {
+		final public static function successState(mixed $output=null, bool $clearMsg=true): void {
 			if (!self::$is["initialized"]) self::initialize();
 			self::$return["success"] = true;
-			unset(self::$return["messages"]);
+			if ($clearMsg) unset(self::$return["messages"]);
 			if ($output <> null) self::$return["info"] = $output;
 		}
-		final public static function errorMessage($type, string $text=null): void {
+		final public static function errorMessage($type, $text=null): void {
 			if (!self::$is["initialized"]) self::initialize();
 			array_push(
 				self::$return["messages"],
 				$text == null ? $type : array($type, $text)
 			);
 		}
-		final public static function infoMessage($type, string $text=null): void {
+		final public static function infoMessage($type, $text=null): void {
 			if (!self::$is["initialized"]) self::initialize();
 			if (!isset(self::$return["messages"])) self::$return["messages"] = array();
 			array_push(
