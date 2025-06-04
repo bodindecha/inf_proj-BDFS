@@ -82,6 +82,15 @@
 			<li><a data-title="TianTcl_O" href="weixin://dl/chat?TianTcl_O" target="_blank">
 				<img alt="Wechat" src="<?=$APP_CONST["cdnURL"]?>static/img/logo/wechat.svg" loading="lazy" />
 			</a></li>
+			<li><a data-title="TianTcl" href="https://linkedin.com/in/TianTcl" target="_blank">
+				<img alt="LinkedIn" src="<?=$APP_CONST["cdnURL"]?>static/img/logo/linkedin.svg" loading="lazy" />
+			</a></li>
+			<li><a data-title="TianTcl" href="https://youtube.com/@TianTcl" target="_blank">
+				<img alt="Youtube" src="<?=$APP_CONST["cdnURL"]?>static/img/logo/youtube.svg" loading="lazy" />
+			</a></li>
+			<li><a data-title="TianTcl" href="https://tiktok.com/@TianTcl" target="_blank">
+				<img alt="Tiktok" src="<?=$APP_CONST["cdnURL"]?>static/img/logo/tiktok.svg" loading="lazy" />
+			</a></li>
 			<li><a data-title="TianTcl" href="https://ko-fi.com/TianTcl" target="_blank">
 				<img alt="Ko-Fi" src="<?=$APP_CONST["cdnURL"]?>static/img/logo/ko-fi.svg" loading="lazy" />
 			</a></li>
