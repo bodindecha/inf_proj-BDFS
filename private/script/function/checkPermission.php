@@ -7,7 +7,6 @@
 		!RegExTest("/^".str_replace("/", "\\/", $APP_CONST["baseURL"])."((v2\/)?[st]\/?||account\/sign-in(-v\d+)?(\?return_url=(s|t)(%2F)?)?)?$/", $_SERVER["REQUEST_URI"])
 	) $signinURL .= "#next=".urlencode(preg_replace("/^".str_replace("/", "\\/", $APP_CONST["baseURL"])."/", "", $_SERVER["REQUEST_URI"]));
 
-	require_once($APP_RootDir."private/script/lib/TianTcl/various.php");
 	/**
 	 * Permissions:
 	 * 0: No permission (NULL)
