@@ -1,8 +1,15 @@
+<?php
+	$APP_RootDir = str_repeat("../", substr_count($_SERVER["PHP_SELF"], "/"));
+	require_once($APP_RootDir."private/config/constant.php");
+	require_once($APP_RootDir."private/script/lib/TianTcl/various.php");
+	require_once($APP_RootDir."private/script/function/autoCDN.php");
+	header("Content-Type: text/javascript");
+?>
 const AppConfig = {
-	name: "Bodindecha (Sing Singhaseni) School's Information System",
-	baseURL: "/",
-	APIbase: "/v2/api/",
-	cdnURL: "https://cdn.TianTcl.net/",
+	name: "<?=$APP_CONST["name"]?>",
+	baseURL: "<?=$APP_CONST["baseURL"]?>",
+	APIbase: "/api/",
+	cdnURL: "<?=$APP_CONST["cdnURL"]?>",
 	tab_color: { light: "#15499A", dark: "#113A7B" },
 	default: {
 		language: "EN", theme: "auto",

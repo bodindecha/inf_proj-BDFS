@@ -1,9 +1,9 @@
 <?php
 	$APP_CONST = array(
+		"name" => "INF Sandbox",
 		"domain" => "https://inf.bodin.ac.th",
 		"baseURL" => "/",
 		"defaultCDN" => "TH", // Default to TH if geolocation fails
-		"name" => "INF Sandbox",
 		"publicDir" => "public_html",
 		"environment" => "PROD",
 		"PERM_TYPES" => array("r", "w", "e", "o"),
