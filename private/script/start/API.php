@@ -5,6 +5,7 @@
 	// Connect
 	require_once($APP_RootDir."private/config/constant.php");
 	require_once($APP_RootDir."private/script/function/utility.php");
+	require_once($APP_RootDir."private/script/lib/TianTcl/various.php");
 	require($APP_RootDir."private/script/function/database.php");
 	require_once($APP_RootDir."private/script/function/checkPermission.php");
 	require_once($APP_RootDir."private/script/function/dbConfig.php");
