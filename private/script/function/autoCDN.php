@@ -38,15 +38,14 @@
 		if (isset($geo["lat"], $geo["lon"])) {
 			$minDist = PHP_INT_MAX;
 			$closest = $APP_CONST["defaultCDN"];
-			function haversine($lat, $lon): float {
-				global $geo;
+			function haversine($geo, $lat, $lon): float {
 				$earthRadius = 6371;
 				$dLat = deg2rad($lat - $geo["lat"]);
 				$dLon = deg2rad($lon - $geo["lon"]);
 				$a = sin($dLat / 2) ** 2 + cos(deg2rad($geo["lat"])) * cos(deg2rad($lat)) * sin($dLon/2) ** 2;
 				return 2 * $earthRadius * asin(sqrt($a));
 			} foreach ($REGIONS as $region => $data) {
-				$dist = haversine(...$data["coord"]);
+				$dist = haversine($geo, ...$data["coord"]);
 				if ($dist < $minDist) {
 					$minDist = $dist;
 					$closest = $region;
