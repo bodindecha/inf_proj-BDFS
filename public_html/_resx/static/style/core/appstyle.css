@@ -132,6 +132,10 @@ app[name=main] > header.safari .item.super .menu:hover .dropdown, app[name=main]
 		transform: translate(-50%, var(--isolate-size));
 	}
 }
+app[name=main] > header.glass {
+	backdrop-filter: blur(10px);
+	background-color: #FFF7 /* transparent */;
+}
 app[name=main] > header .section {
 	height: var(--top-height);
 	display: flex;

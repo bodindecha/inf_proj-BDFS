@@ -2,7 +2,7 @@
 	// Extra variable assignments
 	$hasSignOutBtn = !isset($_SESSION["auth"]["override"]);
 ?>
-<header class="auto --shortcut --search">
+<header class="auto --shortcut --search glass">
 	<div class="section">
 		<div class="item">
 			<a onClick="app.UI.toggleMenu()" href="javascript:" name="menu"><div class="hamburger">

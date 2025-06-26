@@ -3,7 +3,7 @@
 	$hasSignOutBtn = !isset($_SESSION["auth"]["override"]);
 	$isStaff = has_perm("admission");
 ?>
-<header class="auto --shortcut --search">
+<header class="auto --shortcut --search glass">
 	<div class="section">
 		<div class="item">
 			<a onClick="app.UI.toggleMenu()" href="javascript:" name="menu"><div class="hamburger">

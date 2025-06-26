@@ -104,6 +104,10 @@ app[name=main] {
 				&:hover .dropdown, & > a:hover + .dropdown { transform: translate(-50%, var(--isolate-size)); }
 			}
 		}
+		&.glass {
+			backdrop-filter: blur(10px);
+			background-color: #FFF7 /* transparent */;
+		}
 
 		.section {
 			height: var(--top-height);
