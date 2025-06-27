@@ -134,7 +134,7 @@ app[name=main] > header.safari .item.super .menu:hover .dropdown, app[name=main]
 }
 app[name=main] > header.glass {
 	backdrop-filter: blur(10px);
-	background-color: #FFF7 /* transparent */;
+	background-color: rgba(255, 255, 255, 0.4666666667);
 }
 app[name=main] > header .section {
 	height: var(--top-height);
@@ -500,7 +500,8 @@ app[name=main] > .modal {
 	max-width: 90vw;
 	max-height: 80vh;
 	box-shadow: 0 0 var(--shd-big) var(--fade-black-7);
-	background-color: var(--clr-gg-grey-300);
+	background-color: rgba(224, 224, 224, 0.6666666667);
+	backdrop-filter: blur(10px);
 	display: none;
 }
 app[name=main] > .modal.stressed-1 {
@@ -597,7 +598,8 @@ app[name=main] > .back-to-top {
 	z-index: 50;
 	width: 35px;
 	height: 35px;
-	background-color: var(--clr-gg-grey-100);
+	background-color: rgba(245, 245, 245, 0.4666666667);
+	backdrop-filter: blur(5px);
 	border-radius: 50%;
 	border: 0.25px solid var(--clr-gg-grey-300);
 	box-shadow: 0 0 var(--shd-little) var(--fade-black-7);
@@ -664,6 +666,7 @@ app[name=main] > .lightbox .bg-fade-dark {
 	place-self: normal;
 	width: 100%;
 	height: 100%;
+	backdrop-filter: blur(5px);
 	transition: var(--time-tst-slow);
 }
 app[name=main] > .lightbox .lb-box {
@@ -890,8 +893,8 @@ app[name=main] > .context-menu {
 	max-width: calc(100vw - 7px);
 	height: 0;
 	max-height: calc(100vh - 7px);
-	background-color: var(--fade-white-3);
-	backdrop-filter: blur(12.5px);
+	background-color: var(--fade-white-5);
+	backdrop-filter: blur(10px);
 	border: 0 solid var(--fade-black-5);
 	border-radius: 5px;
 	overflow: hidden;
