@@ -10,11 +10,11 @@
 			"US-West" => array( // Oregon
 				"domain" => "us.cdn.TianTcl.net",
 				"coord" => [44.0521, -123.0868]
-			),
+			)/*,
 			"UK" => array( // Newcastle upon Tyne
 				"domain" => "TianTcl.infy.uk",
 				"coord" => [54.9733, -1.6140]
-			)
+			)*/
 		);
 
 		// Get saved region

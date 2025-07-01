@@ -17,7 +17,7 @@
 			self::$is["initialized"] = true;
 		}
 
-		final public static function verify(string $token) {
+		final public static function verify(string $token): bool {
 			global $APP_CONST, $USER_IP;
 			$data = array(
 				"secret" => self::$default["TURNSTILE_SECRET"],

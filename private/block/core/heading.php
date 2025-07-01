@@ -50,7 +50,7 @@
 		<meta name="mobile-web-app-capable" content="yes" />
 		<link rel="canonical" href="<?=$APP_CONST["domain"].$APP_CONST["baseURL"]?>" />
 		<!-- Resources loading -->
-		<link rel="stylesheet" href="<?=$APP_CONST["baseURL"]?>_resx/static/style/core/appstyle.css?d=2024-08-06" />
+		<link rel="stylesheet" href="<?=$APP_CONST["cdnURL"]?>static/style/core/appstyle.css" crossorigin="anonymous" />
 		<link rel="stylesheet" href="<?=$APP_CONST["baseURL"]?>_resx/static/style/core/stylevar.css" />
 		<link rel="stylesheet" href="<?=$APP_CONST["baseURL"]?>_resx/static/style/core/customize.css" />
 		<link rel="stylesheet" href="<?=$APP_CONST["cdnURL"]?>static/style/core/appobj.css?d=2024-12-29" crossorigin="anonymous" />
