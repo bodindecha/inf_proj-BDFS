@@ -13,7 +13,7 @@
 			]
 		); CONST OU_root = "/";
 		protected static $OU = array(
-			"root"		=> "/Paragon Plus",
+			"root"		=> "/",
 			"student"	=> self::OU_root."school/student",
 			"teacher"	=> self::OU_root."school/teacher",
 			"employee"	=> self::OU_root."employee",
@@ -62,7 +62,7 @@
 				"aud"	=> self::$GOOGLE["API_URL"][0],
 				"exp"	=> $now + $lifetime,
 				"iat"	=> $now,
-				"sub"	=> self::$GOOGLE["serviceAccount"]["superAdminEmail"]
+				"sub"	=> self::$GOOGLE["superAdminEmail"]
 			]; // Build JWT
 			$jwtToSign = base64url_encode(json_encode($header)).".".base64url_encode(json_encode($claim));
 			// Sign JWT with private key
