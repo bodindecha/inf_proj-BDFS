@@ -47,18 +47,18 @@
 		}
 
 		// Helper functions
-		final protected static function buildResponse(bool $success, string|null $message=null, ...$data): array {
+		final protected static function buildResponse(bool $success, $message=null, ...$data): array {
 			$response = array("success" => $success);
 			if ($message) $response["message"] = $message;
 			if (count($data)) $response["data"] = $data;
 			return $response;
 		}
-		final protected static function getJWT(int $lifetime=60): array|string {
+		final protected static function getJWT(string $scope, int $lifetime=3600): array|string {
 			if (!self::$is["usable"]) return self::buildResponse(false, "❌ Google Sync is not configured");
 			$header = array("alg" => "RS256", "typ" => "JWT");
 			$now = time(); $claim = [
 				"iss"	=> self::$GOOGLE["serviceAccount"]["client_email"],
-				"scope"	=> "https://www.googleapis.com/auth/admin.directory.user",
+				"scope"	=> "https://www.googleapis.com/auth/admin.$scope",
 				"aud"	=> self::$GOOGLE["API_URL"][0],
 				"exp"	=> $now + $lifetime,
 				"iat"	=> $now,
@@ -84,7 +84,7 @@
 			if (!$accessToken) return self::buildResponse(false, "❌ Failed to get access token");
 			return $accessToken;
 		}
-		final public static function updateUser(string $user, array|null $data=null, string $path="/{user}", $method="PUT"): array {
+		final public static function updateUser(string $user, $data=null, string $path="/{user}", $method="PUT"): array {
 			if (!self::$is["usable"]) return self::buildResponse(false, "❌ Google Sync is not configured");
 			$path = str_replace("{user}", $user, $path);
 			$ch = curl_init(self::$GOOGLE["API_URL"][1].$path);
@@ -92,7 +92,7 @@
 				CURLOPT_RETURNTRANSFER => true,
 				CURLOPT_CUSTOMREQUEST => $method,
 				CURLOPT_HTTPHEADER => [
-					"Authorization: Bearer ".self::getJWT(),
+					"Authorization: Bearer ".self::getJWT("directory.user"),
 					"Content-Type: application/json"
 				]
 			); if ($data) $options[CURLOPT_POSTFIELDS] = json_encode($data);
@@ -103,7 +103,7 @@
 			if ($httpCode == 200) return self::buildResponse(true, "✅ User updated successfully", json_decode($response, true));
 			return self::buildResponse(false, "❌ Failed to update user", $httpCode, json_decode($response, true));
 		}
-		final public static function updateGroup(string $group, array|null $data=null, string $path="/{group}", string $method=""): array {
+		final public static function updateGroup(string $group, $data=null, string $path="/{group}", string $method=""): array {
 			if (!self::$is["usable"]) return self::buildResponse(false, "❌ Google Sync is not configured");
 			$path = str_replace("{group}", $group, $path);
 			$ch = curl_init(self::$GOOGLE["API_URL"][2].$path);
@@ -111,7 +111,7 @@
 				CURLOPT_RETURNTRANSFER => true,
 				CURLOPT_CUSTOMREQUEST => $method,
 				CURLOPT_HTTPHEADER => [
-					"Authorization: Bearer ".self::getJWT(),
+					"Authorization: Bearer ".self::getJWT("directory.group"),
 					"Content-Type: application/json"
 				]
 			); if ($data) $options[CURLOPT_POSTFIELDS] = json_encode($data);
@@ -124,7 +124,7 @@
 		}
 
 		// User functions
-		final public static function createUser(string $email, string $name_first, string $name_last, string $password, string $department, array|null $other=null): array {
+		final public static function createUser(string $email, string $name_first, string $name_last, string $password, string $department, $other=null): array {
 			if (!array_key_exists($department, self::$OU)) return self::buildResponse(false, "❌ Invalid department: $department");
 			$data = array(
 				"primaryEmail" => $email,
@@ -206,7 +206,7 @@
 		}
 
 		// Groups functions
-		final public static function createGroup(string $name, string $email, string|null $description=null): array {
+		final public static function createGroup(string $name, string $email, $description=null): array {
 			$data = array(
 				"name" => $name,
 				"email" => $email
@@ -252,7 +252,7 @@
 			if (!$this -> user) return parent::buildResponse(false, "❌ User not specified");
 			return parent::addGroupMember($group, $this -> user, $role);
 		}
-		final public function create(string $email, string $name_first, string $name_last, string $password, string $department, array|null $other=null): array {
+		final public function create(string $email, string $name_first, string $name_last, string $password, string $department, $other=null): array {
 			if ($this -> user) return parent::buildResponse(false, "❌ User has already been specified");
 			$resp = parent::createUser($email, $name_first, $name_last, $password, $department, $other);
 			if ($resp["success"]) $this -> user = $email;
@@ -323,7 +323,7 @@
 		}
 
 		// Functional functions
-		final public function create(string $name, string $email, string|null $description=null): array {
+		final public function create(string $name, string $email, $description=null): array {
 			if ($this -> user) return parent::buildResponse(false, "❌ Group has already been specified");
 			$resp = parent::createGroup($name, $email, $description);
 			if ($resp["success"]) $this -> group = $email;

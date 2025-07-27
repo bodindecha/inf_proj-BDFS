@@ -108,5 +108,5 @@
 			</a></li>
 		</ul>
 	</div>
-	<center>พัฒนาโดย <u class="btn-expand" onClick="$(this.parentNode.parentNode.children[0]).toggle()[0].scrollIntoView()">นายชัยณัฏฐ์ ลิ้มชุณหนุกูล</u> &emsp; &copy; 2021 - <?=date("Y")?></center>
+	<center>พัฒนาโดย <u class="btn-expand" onClick="$(this.parentNode).prev().toggle()[0].scrollIntoView()">นายชัยณัฏฐ์ ลิ้มชุณหนุกูล</u> &emsp; &copy; 2021 - <?=date("Y")?></center>
 </div>

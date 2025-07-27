@@ -11,7 +11,7 @@
 		$selectedDB = $APP_CONST["DB_INFO"][$database];
 		try {
 			$db = new mysqli($selectedDB["serv"], $selectedDB["user"], $selectedDB["pswd"], $selectedDB["name"]);
-			$db -> set_charset("utf8");
+			$db -> set_charset("utf8mb4");
 			if ($db -> connect_errno) return array(
 				"DB_ERROR_NO" => $db -> connect_errno,
 				"DB_ERROR_MSG" => $db -> connect_error
