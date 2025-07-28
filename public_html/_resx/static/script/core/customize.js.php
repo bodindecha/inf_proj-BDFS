@@ -3,7 +3,14 @@
 	require_once($APP_RootDir."private/config/constant.php");
 	require_once($APP_RootDir."private/script/lib/TianTcl/various.php");
 	require_once($APP_RootDir."private/script/function/autoCDN.php");
+	// Header setup
 	header("Content-Type: text/javascript");
+	// Caching
+	$cacheDur = 31536000; // 1 year
+	$cacheExp = gmdate("D, d M Y H:i:s", time() + $cacheDur)." GMT";
+	header("Cache-Control: public, max-age=$cacheDur");
+	header("Expires: $cacheExp");
+	header("Pragma: public");
 ?>
 const AppConfig = {
 	name: "<?=$APP_CONST["name"]?>",
