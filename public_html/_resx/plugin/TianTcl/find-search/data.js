@@ -85,7 +85,7 @@ const fs = (function() {
 	addOption = function(data) {
 		// sv.view = sv.view.replaceAll(sv.query, `<b>${sv.query}</b>`);
 		if (sv.query.length) sv.view = sv.view.replace(new RegExp(`(?!<[^>]*?)(${sv.query})(?![^<]*?>)`, "gi"), "<b>$1</b>");
-		sv.dumper.append(`<span onClick='fs.choose(${data})' tabindex="${++sv.index}">${sv.view}</span>`);
+		sv.dumper.append(`<span onClick='fs.choose(${data.replaceAll("'", "&#x0027;")})' tabindex="${++sv.index}">${sv.view}</span>`);
 	}
 	// Custom begin
 	start = function(isConst, mode, title, complete, param, placeholder) {

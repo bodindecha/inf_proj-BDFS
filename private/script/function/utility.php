@@ -14,6 +14,9 @@
 		else if (!empty($_SERVER["HTTP_X_FORWARDED_FOR"])) $USER_IP = $_SERVER["HTTP_X_FORWARDED_FOR"];
 		else $USER_IP = $_SERVER["REMOTE_ADDR"] ?? ""; // null
 	}
+
+	// Predefined constants
+	define("DATE_MYSQL", "Y-m-d H:i:s");
 	
 	// Prototypes
 	function strtoproper(string $str): string {
@@ -81,14 +84,14 @@
 	}
 
 	// Miscellanous functions
-	function RegExTest($pattern, $subject): bool {
+	function RegExTest($pattern, $subject, &$into=null): bool {
 		global $APP_CONST;
 		$subject = mb_convert_encoding((string)$subject, "UTF-8", "auto");
-		if (@preg_match($pattern, "") === false) {
+		if (@preg_match($pattern, "", $into) === false) {
 			if (!isset($APP_CONST["REGEX"][$pattern])) return false;
 			$pattern = $APP_CONST["REGEX"][$pattern];
 		} if (preg_match("/\/[imsxADU]*$/", $pattern)) $pattern .= "u";
-		return (bool)preg_match($pattern, $subject);
+		return (bool)preg_match($pattern, $subject, $into);
 	}
 
 	// Conversions

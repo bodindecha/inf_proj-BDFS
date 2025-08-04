@@ -15,6 +15,7 @@ app[name=main] > main > .container {
 @media (min-width: 992px) { app[name=main] > main > .container { width: 960px; } }
 @media (min-width: 1200px) { app[name=main] > main > .container { width: 1140px; } }
 @media (min-width: 1400px) { app[name=main] > main > .container { width: 1320px; } }
+@media only print { app[name=main] > main > .container { width: 100%; } }
 app[name=main] > main > .container > h2:first-of-type { font-size: 2em; font-weight: 500; line-height: 1em; }
 app[name=main] > main > .container:empty { display: none; }
 app[name=main] > main .container > *:not(:last-child) { margin: 0 0 10px; }
