@@ -1,12 +1,12 @@
 <?php
 	session_start();
-	if (!isset($APP_RootDir)) $APP_RootDir = str_repeat("../", substr_count($_SERVER["PHP_SELF"], "/"));
+	$APP_RootDir ??= str_repeat("../", substr_count($_SERVER["PHP_SELF"], "/"));
 
 	// Connect
 	require_once($APP_RootDir."private/config/constant.php");
 	require_once($APP_RootDir."private/script/function/utility.php");
 	require_once($APP_RootDir."private/script/lib/TianTcl/various.php");
-	require($APP_RootDir."private/script/function/database.php");
+	require_once($APP_RootDir."private/script/function/database.php");
 	require_once($APP_RootDir."private/script/function/checkPermission.php");
 	require_once($APP_RootDir."private/script/function/dbConfig.php");
 
@@ -27,7 +27,7 @@
 		public final static function initialize(bool $useNormalParameters=true): void {
 			if (self::$is["initialized"]) return;
 			global $APP_RootDir, $_SERVER;
-			if (!isset($APP_RootDir)) $APP_RootDir = str_repeat("../", substr_count($_SERVER["PHP_SELF"], "/"));
+			$APP_RootDir ??= str_repeat("../", substr_count($_SERVER["PHP_SELF"], "/"));
 			self::$default["APP_RootDir"] = $APP_RootDir;
 			$buffer = new self();
 			$buffer -> retrieveData();
@@ -38,6 +38,7 @@
 		final protected function retrieveData(): void {
 			global $_REQUEST, $_FILES;
 			// Recieve
+			$_REQUEST ??= [];
 			self::$action	= $_REQUEST["act"] ?? null;
 			self::$command	= $_REQUEST["cmd"] ?? null;
 			self::$attr		= $_REQUEST["param"] ?? (json_decode(file_get_contents('php://input'), true) ?? null);
@@ -47,8 +48,8 @@
 			// Review
 			self::$return = $useNormalParameters ? array(
 				"success" => false,
-				"messages" => array()
-			) : array();
+				"messages" => []
+			) : [];
 			if ($useNormalParameters && (!strlen(self::$action) || !strlen(self::$command)))
 				self::sendOutput();
 		}
@@ -60,19 +61,19 @@
 			if ($clearMsg) unset(self::$return["messages"]);
 			if ($output <> null) self::$return["info"] = $output;
 		}
-		final public static function errorMessage($type, $text=null): void {
+		final public static function errorMessage($type, $text=null, $display_dur=null): void {
 			if (!self::$is["initialized"]) self::initialize();
 			array_push(
 				self::$return["messages"],
-				$text == null ? $type : array($type, $text)
+				$text == null ? $type : ($display_dur ? [$type, $text, $display_dur] : [$type, $text])
 			);
 		}
-		final public static function infoMessage($type, $text=null): void {
+		final public static function infoMessage($type, $text=null, $display_dur=null): void {
 			if (!self::$is["initialized"]) self::initialize();
-			if (!isset(self::$return["messages"])) self::$return["messages"] = array();
+			if (!isset(self::$return["messages"])) self::$return["messages"] = [];
 			array_push(
 				self::$return["messages"],
-				$text == null ? $type : array($type, $text)
+				$text == null ? $type : ($display_dur ? [$type, $text, $display_dur] : [$type, $text])
 			);
 		}
 		final public static function sendOutput(bool $readable=false): never {
@@ -89,9 +90,7 @@
 		// Utilities
 		final public static function requirePermission($scopes=null, bool $useAnd=true, bool $mods=true): bool {
 			if (hasPermission($scopes, $useAnd, mods: $mods)) return true;
-			self::$return["messages"] = array(
-				array(2, "You don't have permission to perform this action.")
-			);
+			self::$return["messages"] = [[2, "You don't have permission to perform this action."]];
 			self::sendOutput();
 			return false;
 		}

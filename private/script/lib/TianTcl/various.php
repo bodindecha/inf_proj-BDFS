@@ -36,7 +36,7 @@
 			return is_int($str) ? intval($str) : (is_float($str) ? floatval($str) : $str);
 		}
 		// v2
-		final public static function encrypt($str, string $key="", string $salt="", int $nest=1): string {
+		final public static function encrypt($str, string $key="", string $salt="", int $nest=1, bool $URLsafe=false): string {
 			if (gettype($str) <> "string") $str = strval($str);
 			$key = $key ?: self::$default["crypto_key"];
 			if (!strlen($salt) && self::sessVar("crypto_salt") == null) self::sessVar("crypto_salt", self::generateSalt(true));
@@ -54,13 +54,13 @@
 					$noFactor = ($noSalt * $noKey) % ($noSalt + $noKey);
 					$noChar = $noOriginal + $noFactor;
 					$encrypted .= chr($noChar);
-				} return rtrim(base64_encode($encrypted), "=");
-			} for ($rounds = 0; $rounds < $nest; $rounds++) $str = base64_decode(self::encrypt($str, $key));
-			return rtrim(base64_encode($str), "=");
+				} return $URLsafe ? base64url_encode($encrypted) : rtrim(base64_encode($encrypted), "=");
+			} for ($rounds = 0; $rounds < $nest; $rounds++) $str = ($URLsafe ? "base64url_decode" : "base64_decode")(self::encrypt($str, $key));
+			return $URLsafe ? base64url_encode($str) : rtrim(base64_encode($str), "=");
 		}
-		final public static function decrypt(string $str, string $key="", string $salt="", int $nest=1) {
+		final public static function decrypt(string $str, string $key="", string $salt="", int $nest=1, bool $URLsafe=false) {
 			if (gettype($str) <> "string") $str = strval($str);
-			$str = base64_decode($str);
+			$str = ($URLsafe ? "base64url_decode" : "base64_decode")($str);
 			$key = $key ?: self::$default["crypto_key"];
 			if (!strlen($salt)) {
 				$salt = self::sessVar("crypto_salt");
@@ -159,7 +159,7 @@
 				$buffer = array_merge($buffer, self::$file_extensions[$type]);
 			} return $buffer;
 		}
-		private static function cacheDurCalculator(string $type): int {
+		public static function cacheDurCalculator(string $type): int {
 			if (in_array($type, self::groupExtensions(["image", "video", "audio"]))) return 31536000; // 1 year
 			if (in_array($type, self::groupExtensions(["documents", "msAccess", "msExcel", "msPowerpnt", "msProject", "msPublisher", "msVisio", "msWord", "adobe"]))) return 2592000; // 1 month
 			if (in_array($type, self::groupExtensions(["code", "font"]))) return 31536000; // 1 year
@@ -252,14 +252,21 @@
 				)
 			);
 		}
+		final public static function inTimeRange($start, $stop, $timestamp=null) {
+			if (empty($timestamp)) $timestamp = time();
+			else if (gettype($timestamp) <> "integer") $timestamp = strtotime($timestamp);
+			if (gettype($start) <> "integer") $start = strtotime($start);
+			if (gettype($stop) <> "integer") $stop = strtotime($stop);
+			return self::inRange($timestamp, $start, $stop);
+		}
 		/***
-		 * Vairous
+		 * Various
 		 ***/
-		final public static function sessVar($key, $value="__getValue", $coalesce=null) {
+		final public static function sessVar($key, mixed $value="__GET", $coalesce=null): mixed {
 			if (!isset($_SESSION["var"])) $_SESSION["var"] = array();
 			if (gettype($key) <> "string") $key = strval($key);
-			if ($value == "__getValue") return $_SESSION["var"][$key] ?? $coalesce;
-			else if ($value == "__delete") {
+			if ($value == "__GET") return $_SESSION["var"][$key] ?? $coalesce;
+			else if ($value == "__REMOVE") {
 				if (!isset($_SESSION["var"][$key])) return false;
 				unset($_SESSION["var"][$key]);
 				return true;
@@ -271,6 +278,10 @@
 			$originURL = urlencode(preg_replace("/^".str_replace("/", "\\/", $APP_CONST["baseURL"])."/", "", $_SERVER["REQUEST_URI"]));
 			header("Location: ".$APP_CONST["baseURL"]."error/$code#ref=$originURL");
 			exit(0);
+		}
+		public static function inRange($value, $min=0, $max=100): bool {
+			if (!is_numeric($value) || !is_numeric($min) || !is_numeric($max) || (float)$min > (float)$max) return false;
+			return (float)$min <= (float)$value && (float)$value <= (float)$max;
 		}
 		public static function boundNumber($number, $min=0, $max=100) {
 			if (!is_numeric($number) || !is_numeric($min) || !is_numeric($max) || (float)$min > (float)$max) return null;
@@ -285,14 +296,12 @@
 		$ivSize = openssl_cipher_iv_length($method);
 		$iv = openssl_random_pseudo_bytes($ivSize);
 		$encrypted = openssl_encrypt($str, $method, sha256($key.$salt), OPENSSL_RAW_DATA, $iv);
-		$encrypted = base64_encode($iv.$encrypted);
-		if ($URLsafe) $encrypted = str_replace(["+", "/", "="], ["-", "_", ""], $encrypted);
+		$encrypted = ($URLsafe ? "base64url_encode" : "base64_encode")($iv.$encrypted);
 		return $encrypted;
 	} }
 	if (!function_exists("AES_decrypt")) { function AES_decrypt(string $str, string $key="", string $salt="", $method="aes-256-cbc", $URLsafe=false): string {
 		if (gettype($str) <> "string") $str = strval($str);
-		if ($URLsafe) $str = str_replace(["-", "_"], ["+", "/"], $str);
-		$str = base64_decode($str);
+		$str = ($URLsafe ? "base64url_decode" : "base64_decode")($str);
 		$ivSize = openssl_cipher_iv_length($method);
 		$iv = substr($str, 0, $ivSize);
 		$encrypted = substr($str, $ivSize);

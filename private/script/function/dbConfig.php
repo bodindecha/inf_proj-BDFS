@@ -2,6 +2,7 @@
 	if (!isset($_SESSION)) session_start();
 	if (!isset($APP_RootDir)) $APP_RootDir = str_repeat("../", substr_count($_SERVER["PHP_SELF"], "/"));
 	require_once($APP_RootDir."private/script/function/database.php");
+	require_once($APP_RootDir."private/script/lib/TianTcl/various.php");
 	
 	class DBConfig {
 		const ERR_RESULT = "$~ERR!";
@@ -18,20 +19,13 @@
 			return true;
 		}
 
-		public static function beautifyAnswer(string $value): mixed {
-			if (RegExTest("/^([Tt]rue|TRUE|[Ff]alse|FALSE)$/", $value)) return strtolower($value) == "true";
-			if (RegExTest("/^\d*\.\d+$/", $value)) return (float)$value;
-			if (RegExTest("/^\d+$/", $value)) return (int)$value;
-			if ($value == "null") return null;
-			return $value;
-		}
 		final public static function get(string $key): mixed {
 			global $APP_DB;
 			$key = escapeSQL($key);
 			if (!strlen($key)) return self::ERR_RESULT;
 			$get = $APP_DB[self::$DBidx] -> query("SELECT value FROM ".self::$table." WHERE name='$key'");
 			if (!$get || $get -> num_rows <> 1) return self::ERR_RESULT;
-			return self::beautifyAnswer(($get -> fetch_array(MYSQLI_ASSOC))["value"]);
+			return TianTcl::beautifyAnswer(($get -> fetch_array(MYSQLI_ASSOC))["value"]);
 		}
 		final public static function set(string $key, string|int|float|bool $value): bool|string {
 			global $APP_DB;
