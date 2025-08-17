@@ -12,3 +12,6 @@ public_html/resource/php/lib/**
 public_html/resource/fonts/*
 # Resource files (Duplicates)
 public_html/resource/images/logo/*
+
+# Systems (Separate Repository)
+public_html/project/report-X/**

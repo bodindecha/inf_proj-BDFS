@@ -1,5 +1,5 @@
 <?php
-	if (!isset($APP_RootDir)) $APP_RootDir = str_repeat("../", substr_count($_SERVER["PHP_SELF"], "/"));
+	$APP_RootDir ??= str_repeat("../", substr_count($_SERVER["PHP_SELF"], "/"));
 
 	class mlsn {
 		private static $default, $is = array(
@@ -82,13 +82,14 @@
 				syslog_a(null, "email", "send", self::NAME, "$recp: $error", false, "", "cURL");
 				return false;
 			} else curl_close($email);
-			if (!$result) {
+			$http_status_code = curl_getinfo($email, CURLINFO_HTTP_CODE);
+			if ($http_status_code == 202) {
 				# if ($is_in_API) API::successState();
 				syslog_a(null, "email", "send", self::NAME, $recp);
 				return true;
 			} else {
-				if ($is_in_API) API::infoMessage(3, "Unable to send an email");
-				syslog_a(null, "email", "send", self::NAME, "$recp: $result", false, "", "API mailersend");
+				if ($is_in_API) API::infoMessage(3, "Unable to send an email<hr>$http_status_code: $result");
+				syslog_a(null, "email", "send", self::NAME, "$recp: [$http_status_code] $result", false, "", "API mailersend");
 				return false;
 			} return null;
 		}
