@@ -7,7 +7,7 @@
 		<div class="form" style="display: none;"></div>
 		<div class="action css-flex-gap-10">
 			<div class="action-group">
-				<button class="secondary ripple-click" onClick="app.UI.modal.close()">Dismiss</button>
+				<button class="secondary ripple-click" onClick="app.UI.modal.close(true)">Dismiss</button>
 			</div>
 			<div class="action-group slider css-flex-wrap right"></div>
 		</div>
