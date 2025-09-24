@@ -1,3 +1,4 @@
+/* ——— Default style ——— */
 /* Global settings */
 html, app[name=main] {
 	--scrollbar-size-1: 10px;										/* Default */
@@ -12,7 +13,7 @@ html, app[name=main] {
 	--sys-tooltip-font: "Balsamiq Sans", "Sarabun", sans-serif;
 	--sys-form-font-1: var(--font-sarabun), sans-serif;				/* Input */
 	--sys-form-font-1s: 25px;										/* Input */
-	--sys-form-font-1h: 26px;										/* Input */
+	--sys-form-font-1h: 25px;										/* Input */
 	--sys-form-font-2: var(--font-sarabun), sans-serif;				/* Label */
 	--sys-form-font-3: "Quicksand", sans-serif;						/* Autofill */
 	--sys-form-font-3s: 17.5px;										/* Autofill */
@@ -48,7 +49,7 @@ app[name=main] > header { /* Header (top tab) */
 	--sys-navtab-btn-bg-1: var(--clr-gg-grey-500);				/* Normal */
 	--sys-navtab-btn-bg-2: var(--clr-gg-grey-500);				/* Hovered */
 }
-app[name=main] > :where(main, .navigator-tab, .lightbox) {		/* Navigator (aside tab) */
+app[name=main] > :where(main, .navigator-tab, .lightbox) {	/* Navigator (aside tab) */
 	/* Main CSS */
 	--sys-navtab-bg-1: #EFF7FD;								/* Normal background color */
 	--sys-navtab-bd-thick: 0.5px;											/* Border thickness */
@@ -75,6 +76,11 @@ app[name=main] a {
 	--sys-link-clr-5: #0A58CA;	/* focus */
 }
 @media only screen and (max-width: 768px) {
+	/* Global settings */
+	html, app[name=main] {
+		--sys-form-font-1s: 20px;	/* Input */
+		--sys-form-font-1h: 18px;	/* Input */
+	}
 	app[name=main] > header { /* Header (top tab) */
 		/* Texts */
 		--sys-header-text-size-1: 12.5px;	/* Normal */
@@ -82,7 +88,49 @@ app[name=main] a {
 		--sys-header-text-size-3: 12.5px;	/* Active */
 		--sys-header-text-size-4: 12.5px;	/* Current page */
 	}
-	app[name=main] > :where(main, .navigator-tab, .lightbox) {		/* Navigator (aside tab) */
+	app[name=main] > :where(main, .navigator-tab, .lightbox) {	/* Navigator (aside tab) */
 		font-size: 20px;
+	}
+}
+
+/* ——— Google font ——— */
+/* Global settings */
+app[name=main].font-google {
+	--font-google: "Google Sans", "Open Sans";
+	--sys-button-font-1: var(--font-google), serif;		/* Main */
+	--sys-form-font-1: var(--font-google), sans-serif;	/* Input */
+	--sys-form-font-1s: 20px;							/* Input */
+	--sys-form-font-1h: 16px;							/* Input */
+	--sys-form-font-2: var(--font-google), sans-serif;	/* Label */
+}
+/* App settings */
+app[name=main].font-google.font-google > header { /* Header (top tab) */
+	/* Texts */
+	--sys-header-text-font: var(--font-google), sans-serif;
+	--sys-header-text-size-1: 17.5px;	/* Normal */
+	--sys-header-text-size-2: 17.5px;	/* Hovered */
+	--sys-header-text-size-3: 17.5px;	/* Active */
+	--sys-header-text-size-4: 17.5px;	/* Current page */
+}
+app[name=main].font-google > :where(main, .navigator-tab, .lightbox) {	/* Navigator (aside tab) */
+	/* Customized CSS */
+	font-size: 17px;
+	font-family: var(--font-google), serif;
+}
+@media only screen and (max-width: 768px) {
+	/* Global settings */
+	app[name=main].font-google {
+		--sys-form-font-1s: 16px;	/* Input */
+		--sys-form-font-1h: 12px;	/* Input */
+	}
+	app[name=main].font-google > header { /* Header (top tab) */
+		/* Texts */
+		--sys-header-text-size-1: 12.5px;	/* Normal */
+		--sys-header-text-size-2: 12.5px;	/* Hovered */
+		--sys-header-text-size-3: 12.5px;	/* Active */
+		--sys-header-text-size-4: 12.5px;	/* Current page */
+	}
+	app[name=main].font-google > :where(main, .navigator-tab, .lightbox) {	/* Navigator (aside tab) */
+		font-size: 12.5px;
 	}
 }

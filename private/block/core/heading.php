@@ -52,8 +52,8 @@
 		<!-- Resources loading -->
 		<link rel="stylesheet" href="<?=$APP_CONST["cdnURL"]?>static/style/core/appstyle.css" crossorigin="anonymous" />
 		<link rel="stylesheet" href="<?=$APP_CONST["baseURL"]?>_resx/static/style/core/stylevar.css" />
-		<link rel="stylesheet" href="<?=$APP_CONST["baseURL"]?>_resx/static/style/core/customize.css" />
-		<link rel="stylesheet" href="<?=$APP_CONST["cdnURL"]?>static/style/core/appobj.css?d=2024-12-29" crossorigin="anonymous" />
+		<link rel="stylesheet" href="<?=$APP_CONST["baseURL"]?>_resx/static/style/core/customize.css?d=2025-09-23" />
+		<link rel="stylesheet" href="<?=$APP_CONST["cdnURL"]?>static/style/core/appobj.css?d=2025-09-23" crossorigin="anonymous" />
 		<link rel="stylesheet" href="<?=$APP_CONST["cdnURL"]?>static/style/core/forms.css?d=2024-08-06" crossorigin="anonymous" />
 		<link rel="stylesheet" href="<?=$APP_CONST["baseURL"]?>_resx/static/style/core/template.css" />
 		<link rel="stylesheet" href="<?=$APP_CONST["baseURL"]?>_resx/static/style/core/components.css" />
