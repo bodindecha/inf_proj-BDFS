@@ -10,11 +10,11 @@
 			"sender" => array("email" => "noreply@___", "name" => "___"),
 			"return" => array("email" => "TianTcl@___", "name" => "TianTcl"),
 			"template" => array(
-				"notificiation" => "___",
+				"notify" => "___",
 				"action" => "___",
 				"alert" => "___"
 			)
-		);
+		), $no_main_recp = "/^_{1,2}[A-Z0-9\\-_\\.]*$/i";
 		function __construct() {
 			# if (!$this -> is["initialized"]) self::initialize();
 		}
@@ -27,7 +27,7 @@
 		public const NAME = "mailersend";
 		// chinissai@hotmail.com
 
-		final public static function email(array $data, string $subj, string $type): bool|null {
+		final public static function email(array $data, string $subj, string $type, bool $append_log=true): bool|null {
 			global $APP_CONST;
 			$is_in_API = class_exists("API");
 			// Convert data
@@ -36,12 +36,12 @@
 			if (!self::$is["initialized"]) self::initialize();
 			if (!in_array($type, array_keys(self::$MAILERSEND["template"]))) {
 				if ($is_in_API) API::errorMessage(3, "Invalid email type");
-				# syslog_a(null, "email", "send", self::NAME, $recp, false, "", "Wrong type");
+				# if ($append_log) syslog_a(null, "email", "send", self::NAME, $recp, false, "", "Wrong type");
 				return false;
 			} foreach ($recp as $recipient) {
-				if (RegExTest("email", $recipient)) continue;
+				if (RegExTest("email", $recipient) || RegExTest(self::$no_main_recp, $recipient)) continue;
 				if ($is_in_API) API::errorMessage(3, "Invalid email address");
-				# syslog_a(null, "email", "send", self::NAME, $recp, false, "", "Wrong email");
+				# if ($append_log) syslog_a(null, "email", "send", self::NAME, $recp, false, "", "Wrong email");
 				return false;
 			} // Prepare
 			$mail = array(
@@ -53,16 +53,31 @@
 					"Authorization: Bearer ".self::$MAILERSEND["API_KEY"]
 				)
 			); foreach ($recp as $recipient) {
-				array_push($mail["recipients"], array("email" => $recipient));
-				array_push($mail["settings"], array("email" => $recipient, "data" => $data[$recipient] ?? []));
+				if (RegExTest("email", $recipient)) {
+					array_push($mail["recipients"], array("email" => $recipient));
+					array_push($mail["settings"], array("email" => $recipient, "data" => $data[$recipient] ?? []));
+				} else if (isset($data[$recipient])) {
+					$recp_real ??= array();
+					foreach (["cc", "bcc"] as $type) if (isset($data[$recipient][$type])) {
+						$recp_real[$type] ??= [];
+						$recp_tmp = $data[$recipient][$type];
+						unset($data[$recipient][$type]);
+						array_push($recp_real[$type], ...$recp_tmp);
+						foreach ($recp_tmp as $eml_list) {
+							if (!RegExTest("email", $eml_list)) continue;
+							array_push($mail["settings"], array("email" => $eml_list, "data" => $data[$recipient]));
+						}
+					}
+				}
 			} $mail["body"] = array(
 				"from" => self::$MAILERSEND["sender"],
-				"to" => $mail["recipients"], // Can be ["to", "cc", "bcc"]
+				"to" => $mail["recipients"],
 				"reply_to" => self::$MAILERSEND["return"],
 				"subject" => $subj,
 				"personalization" => $mail["settings"],
 				"template_id" => self::$MAILERSEND["template"][$type],
-			); // Setting
+			); if (isset($recp_real)) $mail["body"] = array_merge($mail["body"], $recp_real);
+			// Setting
 			$email = curl_init(self::$MAILERSEND["API_URL"]);
 			curl_setopt_array($email, array(
 				CURLOPT_RETURNTRANSFER => true,
@@ -79,17 +94,17 @@
 			if (curl_errno($email)) {
 				$error = json_encode(curl_error($email), JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 				if ($is_in_API) API::infoMessage(3, $error);
-				syslog_a(null, "email", "send", self::NAME, "$recp: $error", false, "", "cURL");
+				if ($append_log) syslog_a(null, "email", "send", self::NAME, "$recp: $error", false, "", "cURL");
 				return false;
 			} else curl_close($email);
 			$http_status_code = curl_getinfo($email, CURLINFO_HTTP_CODE);
 			if ($http_status_code == 202) {
 				# if ($is_in_API) API::successState();
-				syslog_a(null, "email", "send", self::NAME, $recp);
+				if ($append_log) syslog_a(null, "email", "send", self::NAME, $recp);
 				return true;
 			} else {
 				if ($is_in_API) API::infoMessage(3, "Unable to send an email<hr>$http_status_code: $result");
-				syslog_a(null, "email", "send", self::NAME, "$recp: [$http_status_code] $result", false, "", "API mailersend");
+				if ($append_log) syslog_a(null, "email", "send", self::NAME, "$recp: [$http_status_code] $result", false, "", "API mailersend");
 				return false;
 			} return null;
 		}

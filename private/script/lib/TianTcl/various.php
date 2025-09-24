@@ -1,6 +1,6 @@
 <?php
 	if (!isset($_SESSION)) session_start();
-	if (!isset($APP_RootDir)) $APP_RootDir = str_repeat("../", substr_count($_SERVER["PHP_SELF"], "/"));
+	$APP_RootDir ??= str_repeat("../", substr_count($_SERVER["PHP_SELF"], "/"));
 	require_once($APP_RootDir."private/script/lib/TianTcl/PHP-functions.php");
 	require_once($APP_RootDir."private/config/security-key.php");
 
@@ -24,19 +24,19 @@
 		 * bin2hex = hex2bin | dechex = hexdec | decoct = octdec | decbin = bindec | base_convert
 		 ***/
 		// v1
-		final public static function encrypt_v1($str, int $nest=1): string {
+		final public static function encrypt_v1(string|int|float $str, int $nest=1): string {
 			$nest = self::boundNumber($nest, 1, 5);
 			if (gettype($str) <> "string") $str = strval($str);
 			for ($_ = 0; $_ < $nest; $_++) $str = strrev(bin2hex(str_rot13(strrev(base64_encode(strrev($str))))));
 			return $str;
 		}
-		final public static function decrypt_v1(string $str, int $nest=1) {
+		final public static function decrypt_v1(string $str, int $nest=1): string|int|float {
 			if ($nest < 1) $nest = 1; else if ($nest > 5) $nest = 5;
 			for ($_ = 0; $_ < $nest; $_++) $str = strrev(base64_decode(strrev(str_rot13(hex2bin(strrev($str))))));
 			return is_int($str) ? intval($str) : (is_float($str) ? floatval($str) : $str);
 		}
 		// v2
-		final public static function encrypt($str, string $key="", string $salt="", int $nest=1, bool $URLsafe=false): string {
+		final public static function encrypt(string|int|float $str, string $key="", string $salt="", int $nest=1, bool $URLsafe=false): string {
 			if (gettype($str) <> "string") $str = strval($str);
 			$key = $key ?: self::$default["crypto_key"];
 			if (!strlen($salt) && self::sessVar("crypto_salt") == null) self::sessVar("crypto_salt", self::generateSalt(true));
@@ -58,7 +58,7 @@
 			} for ($rounds = 0; $rounds < $nest; $rounds++) $str = ($URLsafe ? "base64url_decode" : "base64_decode")(self::encrypt($str, $key));
 			return $URLsafe ? base64url_encode($str) : rtrim(base64_encode($str), "=");
 		}
-		final public static function decrypt(string $str, string $key="", string $salt="", int $nest=1, bool $URLsafe=false) {
+		final public static function decrypt(string $str, string $key="", string $salt="", int $nest=1, bool $URLsafe=false): string|int|float|bool {
 			if (gettype($str) <> "string") $str = strval($str);
 			$str = ($URLsafe ? "base64url_decode" : "base64_decode")($str);
 			$key = $key ?: self::$default["crypto_key"];
@@ -85,7 +85,7 @@
 		/***
 		 * Generators
 		 ***/
-		public static function UUIDv4(int $amount=1) {
+		public static function UUIDv4(int $amount=1): string|array {
 			if ($amount <= 1) {
 				// External: https://uuidgenerator.net/api/version4/<amount>
 				$data = random_bytes(16);
@@ -168,7 +168,7 @@
 			if (in_array($type, self::$file_extensions["archive"])) return 2592000; // 1 month
 			return 604800; // 1 week
 		}
-		public static function sendFile(string $path, $cacheDuration=null): never {
+		public static function sendFile(string $path, int|null $cacheDuration=null, string|null $export_name=null, bool $download=false): never {
 			function leave(int $status): never {
 				http_response_code($status);
 				exit(0);
@@ -199,8 +199,8 @@
 			header("ETag: \"$etag\"");
 			header("Last-Modified: $last_modified");
 			// Content disposition
+			header("Content-Disposition: ".($download ? "attachment" : "inline")."; filename=\"".($export_name ?: $name)."\"");
 			if (in_array($type, ["mp4", "mp3", "avi", "mov"])) {
-				header("Content-Disposition: inline");
 				header("Accept-Ranges: bytes");
 				$chunkSize = 1024 * 1024;
 				$buffer = fopen($path, "rb");
@@ -217,7 +217,7 @@
 		/***
 		 * Conditioning
 		 ***/
-		final public static function checkCond($value, string $condition, bool $required=true, bool $isMet=true, string $replace="#"): bool {
+		final public static function checkCond(int|float|string $value, string $condition, bool $required=true, bool $isMet=true, string $replace="#"): bool {
 			if (strlen((string)$value) == 0) return !$required && $isMet;
 			return eval("return ".str_replace($replace, var_export($value, true), $condition).";") xor !$isMet;
 		}
@@ -252,7 +252,7 @@
 				)
 			);
 		}
-		final public static function inTimeRange($start, $stop, $timestamp=null) {
+		final public static function inTimeRange(int|string $start, int|string $stop, int|string|null $timestamp=null) {
 			if (empty($timestamp)) $timestamp = time();
 			else if (gettype($timestamp) <> "integer") $timestamp = strtotime($timestamp);
 			if (gettype($start) <> "integer") $start = strtotime($start);
@@ -260,9 +260,9 @@
 			return self::inRange($timestamp, $start, $stop);
 		}
 		/***
-		 * Various
+		 * Vairous
 		 ***/
-		final public static function sessVar($key, mixed $value="__GET", $coalesce=null): mixed {
+		final public static function sessVar(string|int $key, mixed $value="__GET", mixed $coalesce=null): mixed {
 			if (!isset($_SESSION["var"])) $_SESSION["var"] = array();
 			if (gettype($key) <> "string") $key = strval($key);
 			if ($value == "__GET") return $_SESSION["var"][$key] ?? $coalesce;
@@ -272,26 +272,33 @@
 				return true;
 			} return ($_SESSION["var"][$key] = $value);
 		}
-		public static function http_response_code($code=900): never {
+		public static function http_response_code(string|int $code=900): never {
 			global $APP_CONST;
 			if (gettype($code) <> "string") $code = strval($code);
 			$originURL = urlencode(preg_replace("/^".str_replace("/", "\\/", $APP_CONST["baseURL"])."/", "", $_SERVER["REQUEST_URI"]));
 			header("Location: ".$APP_CONST["baseURL"]."error/$code#ref=$originURL");
 			exit(0);
 		}
-		public static function inRange($value, $min=0, $max=100): bool {
+		public static function inRange(int|float|string $value, int|float|string $min=0, int|float|string $max=100): bool {
 			if (!is_numeric($value) || !is_numeric($min) || !is_numeric($max) || (float)$min > (float)$max) return false;
 			return (float)$min <= (float)$value && (float)$value <= (float)$max;
 		}
-		public static function boundNumber($number, $min=0, $max=100) {
+		public static function boundNumber(string|int|float $number, string|int|float $min=0, string|int|float $max=100): int|float|null {
 			if (!is_numeric($number) || !is_numeric($min) || !is_numeric($max) || (float)$min > (float)$max) return null;
 			return min((float)$max, max((float)$min, (float)$number));
+		}
+		public static function beautifyAnswer(string $value): mixed {
+			if (RegExTest("/^([Tt]rue|TRUE|[Ff]alse|FALSE)$/", $value)) return strtolower($value) == "true";
+			if (RegExTest("/^\d*\.\d+$/", $value)) return (float)$value;
+			if (RegExTest("/^\d+$/", $value)) return (int)$value;
+			if ($value == "null") return null;
+			return $value;
 		}
 	} TianTcl::initialize();
 
 	/* Shorten up functions */
 	// Crypto AES
-	if (!function_exists("AES_encrypt")) { function AES_encrypt($str, string $key="", string $salt="", $method="aes-256-cbc", $URLsafe=false): string {
+	if (!function_exists("AES_encrypt")) { function AES_encrypt(string|int|float $str, string $key="", string $salt="", $method="aes-256-cbc", $URLsafe=false): string {
 		if (gettype($str) <> "string") $str = strval($str);
 		$ivSize = openssl_cipher_iv_length($method);
 		$iv = openssl_random_pseudo_bytes($ivSize);

@@ -1,6 +1,6 @@
 <section class="modal">
 	<div class="head">
-		<button class="red bare icon pill round action ripple-click" onClick="app.UI.modal.close()">&times;</button>
+		<button class="red bare icon pill round action ripple-click" onClick="app.UI.modal.close(true)">&times;</button>
 	</div>
 	<div class="body">
 		<p class="text"></p>
