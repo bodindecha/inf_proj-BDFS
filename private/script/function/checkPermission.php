@@ -6,6 +6,13 @@
 		$_SERVER["REQUEST_URI"] <> $APP_CONST["baseURL"]."v2/" &&
 		!RegExTest("/^".str_replace("/", "\\/", $APP_CONST["baseURL"])."((v2\/)?[st]\/?||account\/sign-in(-v\d+)?(\?return_url=(s|t)(%2F)?)?)?$/", $_SERVER["REQUEST_URI"])
 	) $signinURL .= "#next=".urlencode(preg_replace("/^".str_replace("/", "\\/", $APP_CONST["baseURL"])."/", "", $_SERVER["REQUEST_URI"]));
+	function signInFallback(bool $force=false) {
+		global $APP_USER, $signinURL;
+		if ($force || empty($APP_USER)) {
+			header("Location: $signinURL");
+			exit(0);
+		}
+	}
 
 	/**
 	 * Permissions:

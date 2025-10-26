@@ -56,19 +56,19 @@
 				if (RegExTest("email", $recipient)) {
 					array_push($mail["recipients"], array("email" => $recipient));
 					array_push($mail["settings"], array("email" => $recipient, "data" => $data[$recipient] ?? []));
-				} else if (isset($data[$recipient])) {
+				} else if (RegExTest(self::$no_main_recp, $recipient) && isset($data[$recipient])) {
 					$recp_real ??= array();
-					foreach (["cc", "bcc"] as $type) if (isset($data[$recipient][$type])) {
-						$recp_real[$type] ??= [];
-						$recp_tmp = $data[$recipient][$type];
-						unset($data[$recipient][$type]);
-						array_push($recp_real[$type], ...$recp_tmp);
-						foreach ($recp_tmp as $eml_list) {
-							if (!RegExTest("email", $eml_list)) continue;
-							array_push($mail["settings"], array("email" => $eml_list, "data" => $data[$recipient]));
+					foreach (["cc", "bcc"] as $tag_type) if (isset($data[$recipient][$tag_type])) {
+						$recp_real[$tag_type] ??= [];
+						$recp_tmp = $data[$recipient][$tag_type];
+						unset($data[$recipient][$tag_type]);
+						foreach ($recp_tmp as $recp_eml) {
+							if (!RegExTest("email", $recp_eml)) continue;
+							array_push($recp_real[$tag_type], array("email" => $recp_eml));
+							array_push($mail["settings"], array("email" => $recp_eml, "data" => $data[$recipient]));
 						}
 					}
-				}
+				} $content ??= json_encode($data[$recipient], JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
 			} $mail["body"] = array(
 				"from" => self::$MAILERSEND["sender"],
 				"to" => $mail["recipients"],
@@ -76,8 +76,10 @@
 				"subject" => $subj,
 				"personalization" => $mail["settings"],
 				"template_id" => self::$MAILERSEND["template"][$type],
-			); if (isset($recp_real)) $mail["body"] = array_merge($mail["body"], $recp_real);
-			// Setting
+			); if (isset($recp_real)) {
+				$mail["body"] = array_merge($mail["body"], $recp_real);
+				$recp = array_merge($recp, ...array_values($recp_real));
+			} // Setting
 			$email = curl_init(self::$MAILERSEND["API_URL"]);
 			curl_setopt_array($email, array(
 				CURLOPT_RETURNTRANSFER => true,
@@ -95,18 +97,25 @@
 				$error = json_encode(curl_error($email), JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 				if ($is_in_API) API::infoMessage(3, $error);
 				if ($append_log) syslog_a(null, "email", "send", self::NAME, "$recp: $error", false, "", "cURL");
+				self::log($subj, $recp, $content, false);
 				return false;
 			} else curl_close($email);
 			$http_status_code = curl_getinfo($email, CURLINFO_HTTP_CODE);
 			if ($http_status_code == 202) {
 				# if ($is_in_API) API::successState();
 				if ($append_log) syslog_a(null, "email", "send", self::NAME, $recp);
+				self::log($subj, $recp, $content);
 				return true;
 			} else {
 				if ($is_in_API) API::infoMessage(3, "Unable to send an email<hr>$http_status_code: $result");
 				if ($append_log) syslog_a(null, "email", "send", self::NAME, "$recp: [$http_status_code] $result", false, "", "API mailersend");
+				self::log($subj, $recp, $content, false);
 				return false;
 			} return null;
+		}
+		private static function log(string $subj, string $recp, string $content, bool $success=true): void {
+			global $APP_DB;
+			$APP_DB[0] -> query("INSERT INTO log_email (subject,recp,message,status) VALUE ('".escapeSQL($subj)."','".escapeSQL($recp)."','".escapeSQL($content)."','".($success ? "Y" : "N")."')");
 		}
 	} mlsn::initialize();
 ?>
