@@ -67,7 +67,7 @@
 		<script type="text/javascript" src="<?=$APP_CONST["baseURL"]?>_resx/static/script/core/customize.js?d=2024-08-16"></script>
 		<script type="text/javascript" src="<?=$APP_CONST["cdnURL"]?>static/script/core/appscript.min.js?v=1.8.6"></script>
 		<script type="text/javascript" src="<?=$APP_CONST["baseURL"]?>resource/js/core/sysscript.js"></script>
-		<script type="text/javascript" src="<?=$APP_CONST["cdnURL"]?>static/script/core/seasonal-effect.js?d=2024-12-29"></script>
+		<script type="text/javascript" src="<?=$APP_CONST["cdnURL"]?>static/script/core/seasonal-effect.js?d=2025-10-27"></script>
 		<script type="text/javascript" src="<?=$APP_CONST["cdnURL"]?>static/script/lib/smooth-scroll.min.js" async></script>
 		<script type="text/javascript" src="<?=$APP_CONST["baseURL"]?>_resx/static/script/ext/scroll-control.js"></script>
 		<script type="text/javascript" src="<?=$APP_CONST["cdnURL"]?>static/script/lib/darkreader.min.js" defer crossorigin="anonymous"></script>
