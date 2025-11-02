@@ -56,7 +56,7 @@
 				if (RegExTest("email", $recipient)) {
 					array_push($mail["recipients"], array("email" => $recipient));
 					array_push($mail["settings"], array("email" => $recipient, "data" => $data[$recipient] ?? []));
-				} else if (RegExTest(self::$no_main_recp, $recipient) && isset($data[$recipient])) {
+				} if (isset($data[$recipient])) { # else if, RegExTest(self::$no_main_recp, $recipient)
 					$recp_real ??= array();
 					foreach (["cc", "bcc"] as $tag_type) if (isset($data[$recipient][$tag_type])) {
 						$recp_real[$tag_type] ??= [];
@@ -78,7 +78,16 @@
 				"template_id" => self::$MAILERSEND["template"][$type],
 			); if (isset($recp_real)) {
 				$mail["body"] = array_merge($mail["body"], $recp_real);
-				$recp = array_merge($recp, ...array_values($recp_real));
+				if (!function_exists("array_flat")) {
+					function array_flat(array $array): array {
+						$result = [];
+						foreach ($array as $item) {
+							if (is_array($item) && !isAssocArr($item)) $result = array_merge($result, array_flat($item));
+							else array_push($result, $item);
+						} return $result;
+					}
+				}
+				$recp = array_merge($recp, array_map(fn($r) => $r["email"], array_flat(array_values($recp_real))));
 			} // Setting
 			$email = curl_init(self::$MAILERSEND["API_URL"]);
 			curl_setopt_array($email, array(
