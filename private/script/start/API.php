@@ -48,17 +48,19 @@
 			// Review
 			self::$return = $useResponseTemplate ? array(
 				"success" => false,
-				"messages" => []
+				"messages" => [],
+				"jsaction" => []
 			) : [];
 			if ($useNormalParameters && (!strlen(self::$action) || !strlen(self::$command)))
 				self::sendOutput();
 		}
 
 		// Prototypes
-		final public static function successState(mixed $output=null, bool $clearMsg=true): void {
+		final public static function successState(mixed $output=null, bool $clearMsg=true, bool $clearJsaction=true): void {
 			if (!self::$is["initialized"]) self::initialize();
 			self::$return["success"] = true;
 			if ($clearMsg) unset(self::$return["messages"]);
+			if ($clearJsaction) unset(self::$return["jsaction"]);
 			if ($output <> null) self::$return["info"] = $output;
 		}
 		final public static function errorMessage(int|string $type, string|null $text=null, int|null $display_dur=null): void {
@@ -75,6 +77,12 @@
 				self::$return["messages"],
 				$text == null ? $type : ($display_dur ? [$type, $text, $display_dur] : [$type, $text])
 			);
+		}
+		final public static function addJSAction(array|string $commands): void {
+			if (!self::$is["initialized"]) self::initialize();
+			if (!isset(self::$return["jsaction"])) self::$return["jsaction"] = [];
+			gettype($commands) == "string" ?
+				array_push(self::$return["jsaction"], $commands) : array_push(self::$return["jsaction"], ...$commands);
 		}
 		final public static function devInfo(string|int|float $key, mixed $data, string $mode="replace"): void {
 			if (!self::$is["initialized"]) self::initialize();
@@ -105,8 +113,10 @@
 
 		// Utilities
 		final public static function requirePermission(string|array|null $scopes=null, bool $useAnd=true, bool $mods=true): bool {
+			global $APP_USER;
 			if (hasPermission($scopes, $useAnd, mods: $mods)) return true;
 			self::$return["messages"] = [[2, "You don't have permission to perform this action."]];
+			if (empty($APP_USER)) self::addJSAction("sys?.auth?.request();");
 			self::sendOutput();
 			return false;
 		}
