@@ -53,7 +53,7 @@
 	</style>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$("app[name='main'] main .message.lime").text(app.settings["lang"] == "TH" ? "หากไม่มีไฟล์ปรากฏขึ้นใน 10 วินาที กรุณากดปิดหน้านี้และเปิดใหม่" : "If the nothing shows up within 10 seconds. Please re-open this viewer.");
+			$("app[name='main'] main .message.lime").text(app.settings["lang"] == "TH" ? "หากไม่มีไฟล์ปรากฏขึ้นใน 10 วินาที กรุณากดปิดหน้านี้และเปิดใหม่" : "If nothing shows up within 10 seconds. Please re-open this viewer.");
 		});
 	</script>
 <?php } else { ?>
