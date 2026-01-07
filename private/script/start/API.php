@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	session_start(); ob_start();
 	$APP_RootDir ??= str_repeat("../", substr_count($_SERVER["PHP_SELF"], "/"));
 
 	// Connect
