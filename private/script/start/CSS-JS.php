@@ -39,8 +39,8 @@
 	@import url("<?=$APP_CONST["baseURL"]?>_resx/static/style/core/appfont.css");
 	@import url("<?=$APP_CONST["cdnURL"]?>static/style/core/tclfont.css");
 	@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-	/* @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"); /* Free */
-	@import url("https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css"); /* Pro */
+	@import url("https://site-assets.fontawesome.com/releases/v7.1.0/css/all.css");
+	:root { --CDN: <?=$APP_CONST["cdnURL"]?>; }
 </style>
 <style type="text/css" class="init"> app[name=main] * { transition: none !important; } </style>
 <script type="text/javascript">

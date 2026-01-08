@@ -50,24 +50,24 @@
 		<meta name="mobile-web-app-capable" content="yes" />
 		<link rel="canonical" href="<?=$APP_CONST["domain"].$APP_CONST["baseURL"]?>" />
 		<!-- Resources loading -->
-		<link rel="stylesheet" href="<?=$APP_CONST["cdnURL"]?>static/style/core/appstyle.css" crossorigin="anonymous" />
+		<link rel="stylesheet" href="<?=$APP_CONST["cdnURL"]?>static/style/core/appstyle.min.css" crossorigin="anonymous" />
 		<link rel="stylesheet" href="<?=$APP_CONST["baseURL"]?>_resx/static/style/core/stylevar.css" />
-		<link rel="stylesheet" href="<?=$APP_CONST["baseURL"]?>_resx/static/style/core/customize.css?d=2025-09-23" />
-		<link rel="stylesheet" href="<?=$APP_CONST["cdnURL"]?>static/style/core/appobj.css?d=2025-09-23" crossorigin="anonymous" />
-		<link rel="stylesheet" href="<?=$APP_CONST["cdnURL"]?>static/style/core/forms.css?d=2024-08-06" crossorigin="anonymous" />
+		<link rel="stylesheet" href="<?=$APP_CONST["baseURL"]?>_resx/static/style/core/customize.css" />
+		<link rel="stylesheet" href="<?=$APP_CONST["cdnURL"]?>static/style/core/appobj.min.css" crossorigin="anonymous" />
+		<link rel="stylesheet" href="<?=$APP_CONST["cdnURL"]?>static/style/core/forms.min.css" crossorigin="anonymous" />
 		<link rel="stylesheet" href="<?=$APP_CONST["baseURL"]?>_resx/static/style/core/template.css" />
 		<link rel="stylesheet" href="<?=$APP_CONST["baseURL"]?>_resx/static/style/core/components.css" />
-		<link rel="stylesheet" href="<?=$APP_CONST["cdnURL"]?>static/style/core/styling.css" crossorigin="anonymous" />
+		<link rel="stylesheet" href="<?=$APP_CONST["cdnURL"]?>static/style/core/styling.min.css" crossorigin="anonymous" />
 		<link rel="stylesheet" href="<?=$APP_CONST["cdnURL"]?>static/style/lib/prism.min.css" crossorigin="anonymous" />
 		<link rel="stylesheet" href="<?=$APP_CONST["baseURL"]?>_resx/static/style/core/components.css" />
 		<script type="text/javascript" src="<?=$APP_CONST["cdnURL"]?>static/script/lib/jQuery/main.min.js"></script>
 		<script type="text/javascript" src="<?=$APP_CONST["cdnURL"]?>static/script/core/Utility.js"></script>
 		<script type="text/javascript" src="<?=$APP_CONST["cdnURL"]?>static/script/lib/disable-devtool.min.js" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="<?=$APP_CONST["cdnURL"]?>static/script/lib/prism.min.js" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="<?=$APP_CONST["baseURL"]?>_resx/static/script/core/customize.js?d=2024-08-16"></script>
-		<script type="text/javascript" src="<?=$APP_CONST["cdnURL"]?>static/script/core/appscript.min.js?v=1.8.6"></script>
+		<script type="text/javascript" src="<?=$APP_CONST["baseURL"]?>_resx/static/script/core/customize.js"></script>
+		<script type="text/javascript" src="<?=$APP_CONST["cdnURL"]?>static/script/core/appscript.min.js"></script>
 		<script type="text/javascript" src="<?=$APP_CONST["baseURL"]?>resource/js/core/sysscript.js"></script>
-		<script type="text/javascript" src="<?=$APP_CONST["cdnURL"]?>static/script/core/seasonal-effect.js?d=2025-10-27"></script>
+		<script type="text/javascript" src="<?=$APP_CONST["cdnURL"]?>static/script/core/seasonal-effect.js"></script>
 		<script type="text/javascript" src="<?=$APP_CONST["cdnURL"]?>static/script/lib/smooth-scroll.min.js" async></script>
 		<script type="text/javascript" src="<?=$APP_CONST["baseURL"]?>_resx/static/script/ext/scroll-control.js"></script>
 		<script type="text/javascript" src="<?=$APP_CONST["cdnURL"]?>static/script/lib/darkreader.min.js" defer crossorigin="anonymous"></script>
