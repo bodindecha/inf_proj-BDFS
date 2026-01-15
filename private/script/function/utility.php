@@ -3,7 +3,7 @@
 
 	// App global variables
 	if (!isset($_SESSION)) session_start();
-	if (!isset($APP_RootDir)) $APP_RootDir = str_repeat("../", substr_count($_SERVER["PHP_SELF"], "/"));
+	$APP_RootDir ??= str_repeat("../", substr_count($_SERVER["PHP_SELF"], "/"));
 
 	if (!isset($APP_CONST)) require_once($APP_RootDir."private/config/constant.php");
 	$APP_USER = $_SESSION["auth"]["user"] ?? ($_SESSION["auth"]["override"] ?? $APP_CONST["USER_TYPE"][3]);
@@ -17,7 +17,7 @@
 
 	// Predefined constants
 	define("DATE_MYSQL", "Y-m-d H:i:s");
-	
+
 	// Prototypes
 	function strtoproper(string $str): string {
 		return ucwords($str);
@@ -84,7 +84,7 @@
 	}
 
 	// Miscellanous functions
-	function RegExTest($pattern, $subject, &$into=null): bool {
+	function RegExTest(string|RegexValidation $pattern, string|int|float $subject, &$into=null): bool {
 		global $APP_CONST;
 		$subject = mb_convert_encoding((string)$subject, "UTF-8", "auto");
 		if (@preg_match($pattern, "", $into) === false) {
@@ -109,5 +109,27 @@
 		$format = explode("/", strlen($date) ? date("d/m/Y", strtotime($date)) : date("d/m/Y"));
 		$format[2] = strval((int)$format[2] + 543); 
 		return implode($delimeter, $format);
+	}
+	function num2locale(string|int|float|null $num, string $lang="TH"): string {
+		$DIGITS = [
+			"EN" => ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+			"TH" => ["๐", "๑", "๒", "๓", "๔", "๕", "๖", "๗", "๘", "๙"],
+			"AR" => ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"],
+			"FA" => ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"],
+			"HI" => ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"],
+			"BN" => ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"],
+			"TA" => ["௦", "௧", "௨", "௩", "௪", "௫", "௬", "௭", "௮", "௯"],
+			"MY" => ["၀", "၁", "၂", "၃", "၄", "၅", "၆", "၇", "၈", "၉"],
+			"KM" => ["០", "១", "២", "៣", "៤", "៥", "៦", "៧", "៨", "৯"],
+			"LO" => ["໐", "໑", "໒", "໓", "໔", "໕", "໖", "໗", "໘", "໙"],
+			"JP" => ["〇", "一", "二", "三", "四", "五", "六", "七", "八", "九"],
+			"ZH" => ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九"],
+			"ZH_FIN" => ["零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"],
+		]; $num = (string)$num;
+		// Normalize (%u → %d) & Convert (%d → %c)
+		return strlen($num) ? preg_replace_callback("/\p{Nd}/u", function ($match) use ($DIGITS, $lang) {
+			$digit = class_exists("IntlChar") ? IntlChar::digit($match[0]) : ord($match[0]) % 10;
+			return $DIGITS[$lang][$digit] ?? $match[0];
+		}, $num) : "";
 	}
 ?>
