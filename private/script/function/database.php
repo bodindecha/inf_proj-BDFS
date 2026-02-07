@@ -5,10 +5,11 @@
 	}
 	if (!isset($APP_CONST["DB_INFO"])) require_once($APP_RootDir."private/config/database.php");
 	
-	if (!isset($APP_DB)) $APP_DB = array();
+	$APP_DB ??= [];
 	function connect_to_database(int $database=0): object|array {
 		global $APP_CONST, $APP_DB;
 		$selectedDB = $APP_CONST["DB_INFO"][$database];
+		mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 		try {
 			$db = new mysqli($selectedDB["serv"], $selectedDB["user"], $selectedDB["pswd"], $selectedDB["name"]);
 			$db -> set_charset("utf8mb4");
@@ -17,7 +18,11 @@
 				"DB_ERROR_MSG" => $db -> connect_error
 			); $APP_DB[$database] = $db;
 			return $APP_DB[$database];
-		} catch (exception $exception) { return array("DB_ERROR_EXCEPTION" => $exception); } 
+		} catch (mysqli_sql_exception $e) { return array(
+			"DB_ERROR_EXCEPTION" => true,
+			"message" => $e -> getMessage(),
+			"code" => $e -> getCode()
+		); } 
 	} connect_to_database();
 
 	function escapeSQL(int|string|float $input): string {
