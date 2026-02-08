@@ -27,7 +27,7 @@
 
 	function escapeSQL(int|string|float $input): string {
 		global $APP_DB;
-		return $APP_DB[0] -> real_escape_string(trim(strval($input)));
+		return $APP_DB[0] -> real_escape_string(trim((string)$input));
 	}
 
 	function syslog_a(string|int|null $doer, string $flow, string $action, string $impact, string $detail="", bool $state=true, string $attr="", string $remark="", bool $force=false, bool $close_db_connection=false): mixed {

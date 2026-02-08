@@ -48,22 +48,6 @@
 	$(document).ready(function() {
 		hsc.init();
 	});
-	function seek_param() {
-		var hash = {};
-		if (location.hash.length > 1) {
-			// Extract hashes
-			location.hash.substring(1, location.hash.length).split("&").forEach((ehs) => {
-				let ths = ehs.split("=");
-				hash[ths[0]] = ths[1];
-			});
-			// Let's see
-			if (typeof hash.ref !== "undefined") {
-				history.replaceState(null, null, location.pathname.replace(/\/error\/\d{3,4}$/, AppConfig.baseURL) + decodeURIComponent(hash.ref));
-				var signInButton = document.querySelector('app[name=main] > header a[href*="#next=error%2F"]');
-				if (signInButton != null) $(signInButton).attr("href", $(signInButton).attr("href").replace(/error%2F\d{3,4}/, hash.ref));
-			}
-		} return hash;
-	}
 	const hsc = (function(d) {
 		const cv = {
 			http_status_codes: { // HSC REF : iana.org/assignments/http-status-codes/http-status-codes.xhtml
@@ -276,6 +260,18 @@
 			$('head meta[name="twitter:title"], head meta[property="og:title"]').attr("content", last.code);
 			d.querySelector("app[name=main] .error .info .intel p").innerHTML = last.text;
 			$('head meta[name="description"], head meta[property="og:description"]').attr("content", last.code);
+		},
+		seek_param = function() {
+			app.IO.URL.getHashQuery().then(hash => {
+				if (!hash) return;
+				if (hash.has("ref")) {
+					var ref = decodeURIComponent(hash.get("ref")).replace(/^\//, "");
+					history.replaceState(null, null, location.pathname.replace(/\/error\/\d{3,4}$/, AppConfig.baseURL) + ref);
+					var signInButton = document.querySelector('app[name=main] > header a[href*="#next=error%2F"]');
+					if (signInButton != null) $(signInButton).attr("href", $(signInButton).attr("href").replace(/error%2F\d{3,4}/, encodeURIComponent(ref)));
+					else console.warn("Couldn't find the sign-in button to update its referrer link.");
+				}
+			});
 		},
 		customError = function(hsc, showNotification=true) {
 			hsc = parseInt(hsc);
