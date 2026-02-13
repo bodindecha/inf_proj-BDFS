@@ -282,10 +282,10 @@
 <?php } $APP_PAGE -> print -> nav(); ?>
 <main>
 	<?php if (!$useAppImgViewer) { ?>
-		<section class="container">
+		<section class="container css-pos-u">
 			<div class="message lime css-text-center"></div>
 		</section>
-		<iframe src="<?=$iframeSrc?>">Loading...</iframe>
+		<iframe class="css-pos-a" src="<?=$iframeSrc?>">Loading...</iframe>
 	<?php } else { ?>
 		<section class="container">
 			<div class="wrapper">

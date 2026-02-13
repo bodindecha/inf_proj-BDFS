@@ -86,17 +86,9 @@ var after_init = function() {
 
 	// No Safari
 	var controlKey = "GA001";
-	if (app._var.isSafari() && (!app.preferences.has("notiBannerClosed") || !(app.preferences.notiBannerClosed[controlKey] ?? false))) {
+	if (app._var.isSafari() && !(app.preferences.has("notiBannerClosed") && (app.preferences.notiBannerClosed[controlKey] ?? false))) {
 		var banner = $(`<div class="banner ref-GA001">
 			<div class="css-padding-10 message orange css-border-white css-full-x css-pos-fixed" style="z-index: 60;">
-				<div class="css-flex css-flex-split css-flex-gap-10">
-					<div class="content css-text-middle css-margin-left-10">You are using <u>Safari</u>. Some <b>features may not work</b> as expected. Try switching to a different browser for the best experience.</div>
-					<div class="action css-text-middle">
-						<button class="bare icon small action" onClick=""><i class="material-icons">close</i></button>
-					</div>
-				</div>
-			</div>
-			<div class="css-padding-10 message orange css-border-white css-full-x css-no-action css-transparent">
 				<div class="css-flex css-flex-split css-flex-gap-10">
 					<div class="content css-text-middle css-margin-left-10">You are using <u>Safari</u>. Some <b>features may not work</b> as expected. Try switching to a different browser for the best experience.</div>
 					<div class="action css-text-middle">
@@ -105,7 +97,11 @@ var after_init = function() {
 				</div>
 			</div>
 		</div>`);
-		banner.find("button:lt(1)").on("click", function() {
+		banner.children().clone()
+			.toggleClass("css-pos-fixed css-no-action css-transparent")
+			.removeAttr("style")
+			.appendTo(banner);
+		banner.find(":first-child .action button:lt(1)").on("click", function() {
 			banner.toggle("blind", () => banner.remove());
 			var nbc = app.preferences.has("notiBannerClosed") ? app.preferences["notiBannerClosed"] : {};
 			nbc[controlKey] = true;
