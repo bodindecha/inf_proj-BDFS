@@ -300,7 +300,7 @@
 		 * @param array $types An array of type categories for which to group file extensions. Each category corresponds to a key in the $file_extensions array.
 		 * @return array An array of file extensions that belong to the specified type categories. If a specified type does not exist in the $file_extensions array, it is skipped, and only valid extensions are included in the returned array.
 		 */
-		final private static function groupExtensions(array $types): array {
+		private static function groupExtensions(array $types): array {
 			$buffer = array();
 			foreach ($types as $type) {
 				if (!isset(self::$file_extensions[$type])) continue;

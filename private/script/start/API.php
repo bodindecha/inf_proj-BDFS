@@ -50,7 +50,7 @@
 		/**
 		 * Retrieves data from the request and populates the static properties of the API class accordingly. This method is responsible for extracting the action, command, attributes, and files from the incoming request and storing them in the class properties for later use in processing the API request.
 		 */
-		final protected function retrieveData(): void {
+		private function retrieveData(): void {
 			global $_REQUEST, $_FILES;
 			// Recieve
 			$_REQUEST ??= [];
@@ -62,7 +62,7 @@
 		/**
 		 * Sets the default response structure for the API. This method initializes the response with a default template containing "success", "messages", and "jsaction" keys, or an empty array if the $useResponseTemplate parameter is set to false. It also checks if the normal parameters "act" and "cmd" are set in the request, and if not, it sends the output immediately. This method should be called after retrieving data from the request to ensure that the response structure is properly initialized before any processing occurs.
 		 */
-		final protected function setDefault(bool $useNormalParameters=true, bool $useResponseTemplate=true): void {
+		private function setDefault(bool $useNormalParameters=true, bool $useResponseTemplate=true): void {
 			// Review
 			self::$return = $useResponseTemplate ? array(
 				"success" => false,
@@ -82,7 +82,7 @@
 		 * @param ?string $text The text of the message. This is the actual content of the message that will be displayed to the user. If null, the $type parameter will be used as the message key pair for front-end lookup.
 		 * @param ?int $display_dur The duration (in seconds) for which the message should be displayed on the front-end. If null, the front-end will use a default duration for displaying the message. If zero, the message will be displayed indefinitely until dismissed by the user.
 		 */
-		final protected function addMessage(int|string $type, string|null $text=null, int|null $display_dur=null): void {
+		private static function addMessage(int|string $type, string|null $text=null, int|null $display_dur=null): void {
 			array_push(
 				self::$return["messages"],
 				$text == null ? $type : ($display_dur ? [$type, $text, $display_dur] : [$type, $text])
